@@ -1,0 +1,106 @@
+{
+  "$id": "https://example.com/geographical-location.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "RealtorRequestSchema",
+  "required": [
+    "loanId",
+    "name",
+    "contact"
+  ],
+  "properties": {
+    "loanId": {
+      "$id": "#/properties/loanId",
+      "type": "string",
+      "title": "The Loanid Schema",
+      "default": "",
+      "examples": [
+        "aa9fdaa2-7bf3-4411-a836-c2a46117f5c3"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "name": {
+      "$id": "#/properties/name",
+      "type": "object",
+      "title": "The Name Schema",
+      "required": [
+        "firstName",
+        "middleName",
+        "lastName",
+        "suffixName"
+      ],
+      "properties": {
+        "firstName": {
+          "$id": "#/properties/name/properties/firstName",
+          "type": "string",
+          "title": "The Firstname Schema",
+          "default": "",
+          "examples": [
+            "John"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "middleName": {
+          "$id": "#/properties/name/properties/middleName",
+          "type": "string",
+          "title": "The Middlename Schema",
+          "default": "",
+          "examples": [
+            "M"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "lastName": {
+          "$id": "#/properties/name/properties/lastName",
+          "type": "string",
+          "title": "The Lastname Schema",
+          "default": "",
+          "examples": [
+            "Doe"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "suffixName": {
+          "$id": "#/properties/name/properties/suffixName",
+          "type": "string",
+          "title": "The Suffixname Schema",
+          "default": "",
+          "examples": [
+            "III"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "contact": {
+      "$id": "#/properties/contact",
+      "type": "object",
+      "title": "The Contact Schema",
+      "required": [
+        "email",
+        "phoneNumber"
+      ],
+      "properties": {
+        "email": {
+          "$id": "#/properties/contact/properties/email",
+          "type": "string",
+          "title": "The Email Schema",
+          "default": "",
+          "examples": [
+            "realtor@email.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "phoneNumber": {
+          "$id": "#/properties/contact/properties/phoneNumber",
+          "type": "integer",
+          "title": "The Phonenumber Schema",
+          "default": 0,
+          "examples": [
+            2225557878
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "losType": {
+      "type": "string"
+    },
+    "losTypeId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "loanId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "downloadUrl": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "borrowerIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "losExportedAt": {
+      "type": "null"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "losType",
+    "losTypeId",
+    "type",
+    "loanId",
+    "name",
+    "downloadUrl",
+    "created",
+    "borrowerIds",
+    "losExportedAt"
+  ]
+}

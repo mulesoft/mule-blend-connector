@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "loanId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "losType": {
+      "type": "string"
+    },
+    "losTypeId": {
+      "type": "string"
+    },
+    "borrowerIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "string",
+      "media": {
+        "binaryEncoding": "base64",
+        "type": "application/pdf"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "loanId"
+   ]
+}

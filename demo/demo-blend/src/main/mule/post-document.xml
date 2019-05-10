@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="post-document" doc:id="69dcdb8a-137e-4b19-a314-e32952ba9000" >
+		<http:listener doc:name="8081/postDocument" doc:id="61c9edf6-17d9-488b-b5d7-15b3f227a3d8" config-ref="HTTP_Listener_config" path="/postDocument"/>
+		<blend:post-document doc:name="Post document" doc:id="64544bec-b0db-4277-b6f2-5adad6370b29" config-ref="Blend_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="5bc00f6c-fb41-4089-9511-45bdee92c5cc" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,48 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "losMilestones"
+  ],
+  "properties": {
+    "losMilestones": {
+      "$id": "#/properties/losMilestones",
+      "type": "array",
+      "title": "The Losmilestones Schema",
+      "items": {
+        "$id": "#/properties/losMilestones/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "losMilestone",
+          "loanId"
+        ],
+        "properties": {
+          "losMilestone": {
+            "$id": "#/properties/losMilestones/items/properties/losMilestone",
+            "type": "string",
+            "title": "The Losmilestone Schema",
+            "default": "",
+            "examples": [
+              "SUBMITTED"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "loanId": {
+            "$id": "#/properties/losMilestones/items/properties/loanId",
+            "type": "string",
+            "title": "The Loanid Schema",
+            "default": "",
+            "examples": [
+              "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}

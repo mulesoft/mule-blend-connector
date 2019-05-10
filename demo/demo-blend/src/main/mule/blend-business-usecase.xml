@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+	<flow name="blendBorrowerFlow" doc:id="c018a7c0-212c-4113-936b-b1902f24dc1f" >
+		<http:listener doc:name="8081/loanBorrowerFlow" doc:id="6322cd52-9682-4773-b677-deaf84f5fbde" config-ref="HTTP_Listener_config" path="/loanBorrowerFlow"/>
+		<blend:post-loan doc:name="Create loan account" doc:id="04c737b0-bdb0-4cbd-b75a-47bb33e4294f" config-ref="Blend_Config" outputMimeType="application/json">
+			<blend:loan-body ><![CDATA[#[{
+  "loanType": "MORTGAGE",
+  "applicationType": "FULL_APPLICATION",
+  "loanPurposeType": "PURCHASE",
+  "propertyType": "SINGLE_FAMILY",
+  "propertySearchType": "NOT_STARTED",
+  "propertyUsageType": "PRIMARY_RESIDENCE",
+  "loanAmount": 100000,
+  "propertyValue": 200000,
+  "propertyAddress": {
+    "streetAddressLine1": "100 Main St",
+    "streetAddressLine2": "Apt 10",
+    "city": "Chicago",
+    "state": "IL",
+    "zipCode": "60007",
+    "zipCodePlusFour": "1000"
+  },
+  "borrower": {
+    "name": {
+	"firstName": "Sarah",
+	"middleName": "P",
+	"lastName": "Hector",
+	"suffixName": "III"
+	},
+    "email": "hector_sarah@blend.com",
+    "SSN": "000113933",
+    "dateOfBirth": "1992-08-30T19:31:38.902Z",
+    "homePhone": "9010890711",
+    "currentAddress": {
+      "streetAddressLine1": "100 Main St",
+      "streetAddressLine2": "Apt 10",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60007",
+      "zipCodePlusFour": "1000"
+    }
+  },
+  "leadId": "leadId1",
+  "crmId": "crmId1",
+  "losId": "losId1",
+  "referenceNumber": "100",
+  "sendEmailInvite": true,
+  "applicationTemplateId": "",
+  "applicationSource": {
+    "type": "LOS",
+    "name": "Test Borrower"
+  }
+}]]]></blend:loan-body>
+		</blend:post-loan>
+		<set-variable value="#[payload.id]" doc:name="Set loanId" doc:id="58041b57-20b3-4d80-b2e5-99bd6fd3e6c9" variableName="loanId" />
+		<salesforce:create doc:name="Create an account in SF" doc:id="ccba9603-9af9-4338-a94b-33354dfec698" config-ref="Salesforce_Config" type="Contact">
+			<salesforce:records><![CDATA[#[[{
+	"LastName": "Raymond12",
+	"FirstName": "Collin12",
+	"Email": "collin_ray12@blend.com",
+	"Loanid__c": vars.loanId
+}]]]]></salesforce:records>
+
+		</salesforce:create>
+		<salesforce:query-single doc:name="Query single" doc:id="10bb3812-c6b1-4684-b105-23116e0c599d" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query>SELECT email,firstname, lastname,Id from Contact where id = ':id'
+</salesforce:salesforce-query>
+			<salesforce:parameters><![CDATA[#[output application/java
+---
+{
+	id : payload[0].id
+}]]]></salesforce:parameters>
+		</salesforce:query-single>
+		<blend:post-borrower doc:name="Post borrower" doc:id="4be83a71-5b57-4f97-a762-6c836af8ec2d" config-ref="Blend_Config" outputMimeType="application/json">
+			<blend:post-borrower-body ><![CDATA[#[%dw 2.0
+output application/json
+---
+{
+"name": {
+"firstName": payload.FirstName,
+"middleName": "M",
+"lastName": payload.LastName,
+"suffixName": "III"
+},
+"email": payload.Email,
+"SSN": "000113934",
+"dateOfBirth": "1992-08-30T19:31:38.902Z",
+"homePhone": "1112223333",
+"currentAddress": {
+"streetAddressLine1": "100 Main St",
+"streetAddressLine2": "Apt 10",
+"city": "Chicago",
+"state": "IL",
+"zipCode": "60007",
+"zipCodePlusFour": "1000"
+},
+"fileNumber": 2,
+"filePosition": 1,
+"loanId": vars.loanId
+}]]]></blend:post-borrower-body>
+		</blend:post-borrower>
+		<blend:patch-borrower doc:name="Patch borrower" doc:id="0eb4aa44-9255-49b4-be0f-8b1f363d0956" config-ref="Blend_Config" borrowerId="#[payload.id]">
+			<blend:patch-borrower-body ><![CDATA[#[output application/json
+---
+{
+	"id": payload.id,
+	"loanId": vars.loanId,
+	"name": {
+		firstName: "Henry",
+		lastName: "Raymond",
+		suffixName: "II",
+		middleName: "V"
+	},
+	"email" : "henry_ray@gmail.com"
+}]]]></blend:patch-borrower-body>
+		</blend:patch-borrower>
+		<blend:delete-borrower doc:name="Delete borrower" doc:id="195a6ca3-df7f-4c84-9de5-2101433451f6" config-ref="Blend_Config" borrowerId="#[payload.id]"/>
+		<blend:get-loan-borrowers doc:name="Get loan borrowers" doc:id="5532360e-f161-47c7-bf2e-489c80716164" config-ref="Blend_Config" loanId="#[vars.loanId]"/>
+		<ee:transform doc:name="Transform Message" doc:id="158a2936-0067-4e3f-8d08-329019a7f54c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="purge-SF" doc:id="58c163da-496a-474b-9ebc-2dbf0d011af9" >
+		<http:listener doc:name="Listener" doc:id="42f1438e-8d5a-4070-bac7-0f6369219905" config-ref="HTTP_Listener_config" path="/deleteAllSF"/>
+		<salesforce:query-all doc:name="Query all" doc:id="fd4c9abc-9fbb-468d-9097-b8bb8c21d7d2" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >SELECT Id from contact where name like '%Raymond%'</salesforce:salesforce-query>
+		</salesforce:query-all>
+		<salesforce:delete doc:name="Delete" doc:id="65ea3bcf-2d9c-41d4-bc14-c928fbcc31a3" config-ref="Salesforce_Config">
+			<salesforce:delete-ids ><![CDATA[#[[payload.Id]]]]></salesforce:delete-ids>
+		</salesforce:delete>
+		<ee:transform doc:name="Delete Response" doc:id="e1c6399e-4075-4276-be08-95b6bb639b4b" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

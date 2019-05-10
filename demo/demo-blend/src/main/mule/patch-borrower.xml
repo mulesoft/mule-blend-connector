@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="patchLoanFlowFlow" doc:id="9eca55e1-49f9-465c-8a6a-5e7fb1f0b7bc" >
+		<http:listener doc:name="8081/patchBorrower/:borrowerId" doc:id="28f47708-0c6a-42a8-9fd4-65efbf1c1df5" config-ref="HTTP_Listener_config" path="/patchBorrower/{borrowerId}"/>
+		<blend:patch-borrower doc:name="Patch borrower" doc:id="e40eb337-cd01-4ca8-9f3a-25380fe8721b" config-ref="Blend_Config" borrowerId="#[attributes.uriParams.borrowerId]"/>
+		<ee:transform doc:name="Transform Message" doc:id="c3f1f850-238d-4eea-99a7-b94130c333c2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

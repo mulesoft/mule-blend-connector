@@ -1,0 +1,1478 @@
+{
+  "$id": "https://example.com/geographical-location.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "DisclosuresPackageRequestSchema",
+  "required": [
+    "loanId",
+    "losId",
+    "type",
+    "description",
+    "documents",
+    "recipients"
+  ],
+  "properties": {
+    "loanId": {
+      "$id": "#/properties/loanId",
+      "type": "string",
+      "title": "The Loanid Schema",
+      "default": "",
+      "examples": [
+        "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "losId": {
+      "$id": "#/properties/losId",
+      "type": "string",
+      "title": "The Losid Schema",
+      "default": "",
+      "examples": [
+        "123456"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "The Type Schema",
+      "default": "",
+      "examples": [
+        "initial-disclosures"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "type": "string",
+      "title": "The Description Schema",
+      "default": "",
+      "examples": [
+        "This is your initial loan estimate"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "documents": {
+      "$id": "#/properties/documents",
+      "type": "array",
+      "title": "The Documents Schema",
+      "items": {
+        "$id": "#/properties/documents/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "id",
+          "borrowers",
+          "lender",
+          "isWetsign"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/properties/documents/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema",
+            "default": "",
+            "examples": [
+              "1239635c-6a0b-406a-85b2-e0e8e23c35db"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "borrowers": {
+            "$id": "#/properties/documents/items/properties/borrowers",
+            "type": "array",
+            "title": "The Borrowers Schema",
+            "items": {
+              "$id": "#/properties/documents/items/properties/borrowers/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "id",
+                "tabs"
+              ],
+              "properties": {
+                "id": {
+                  "$id": "#/properties/documents/items/properties/borrowers/items/properties/id",
+                  "type": "string",
+                  "title": "The Id Schema",
+                  "default": "",
+                  "examples": [
+                    "1239635c-6a0b-406a-85b2-e0e8e23c35db"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "tabs": {
+                  "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs",
+                  "type": "object",
+                  "title": "The Tabs Schema",
+                  "required": [
+                    "approveTabs",
+                    "signHereTabs",
+                    "dateSignedTabs",
+                    "checkboxTabs",
+                    "textTabs",
+                    "radioGroupTabs"
+                  ],
+                  "properties": {
+                    "approveTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs",
+                      "type": "object",
+                      "title": "The Approvetabs Schema",
+                      "required": [
+                        "xPosition",
+                        "yPosition",
+                        "pageNumber",
+                        "tabLabel",
+                        "name",
+                        "height",
+                        "width",
+                        "buttonText",
+                        "font",
+                        "fontColor",
+                        "fontSize",
+                        "bold"
+                      ],
+                      "properties": {
+                        "xPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/xPosition",
+                          "type": "integer",
+                          "title": "The Xposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "yPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/yPosition",
+                          "type": "integer",
+                          "title": "The Yposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "pageNumber": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/pageNumber",
+                          "type": "integer",
+                          "title": "The Pagenumber Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "tabLabel": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/tabLabel",
+                          "type": "string",
+                          "title": "The Tablabel Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "height": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/height",
+                          "type": "integer",
+                          "title": "The Height Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "width": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/width",
+                          "type": "integer",
+                          "title": "The Width Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "buttonText": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/buttonText",
+                          "type": "string",
+                          "title": "The Buttontext Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "font": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/font",
+                          "type": "string",
+                          "title": "The Font Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontColor": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/fontColor",
+                          "type": "string",
+                          "title": "The Fontcolor Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontSize": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/fontSize",
+                          "type": "string",
+                          "title": "The Fontsize Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "bold": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/approveTabs/properties/bold",
+                          "type": "boolean",
+                          "title": "The Bold Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "signHereTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs",
+                      "type": "object",
+                      "title": "The Signheretabs Schema",
+                      "required": [
+                        "xPosition",
+                        "yPosition",
+                        "pageNumber",
+                        "tabLabel",
+                        "name",
+                        "scaleValue",
+                        "optional"
+                      ],
+                      "properties": {
+                        "xPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/xPosition",
+                          "type": "integer",
+                          "title": "The Xposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "yPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/yPosition",
+                          "type": "integer",
+                          "title": "The Yposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "pageNumber": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/pageNumber",
+                          "type": "integer",
+                          "title": "The Pagenumber Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "tabLabel": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/tabLabel",
+                          "type": "string",
+                          "title": "The Tablabel Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "scaleValue": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/scaleValue",
+                          "type": "integer",
+                          "title": "The Scalevalue Schema",
+                          "default": 0,
+                          "examples": [
+                            1
+                          ]
+                        },
+                        "optional": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/signHereTabs/properties/optional",
+                          "type": "boolean",
+                          "title": "The Optional Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "dateSignedTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs",
+                      "type": "object",
+                      "title": "The Datesignedtabs Schema",
+                      "required": [
+                        "xPosition",
+                        "yPosition",
+                        "pageNumber",
+                        "tabLabel",
+                        "name",
+                        "font",
+                        "fontColor",
+                        "fontSize",
+                        "bold"
+                      ],
+                      "properties": {
+                        "xPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/xPosition",
+                          "type": "integer",
+                          "title": "The Xposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "yPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/yPosition",
+                          "type": "integer",
+                          "title": "The Yposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "pageNumber": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/pageNumber",
+                          "type": "integer",
+                          "title": "The Pagenumber Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "tabLabel": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/tabLabel",
+                          "type": "string",
+                          "title": "The Tablabel Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "font": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/font",
+                          "type": "string",
+                          "title": "The Font Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontColor": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/fontColor",
+                          "type": "string",
+                          "title": "The Fontcolor Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontSize": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/fontSize",
+                          "type": "string",
+                          "title": "The Fontsize Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "bold": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/dateSignedTabs/properties/bold",
+                          "type": "boolean",
+                          "title": "The Bold Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "checkboxTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs",
+                      "type": "object",
+                      "title": "The Checkboxtabs Schema",
+                      "required": [
+                        "xPosition",
+                        "yPosition",
+                        "pageNumber",
+                        "tabLabel",
+                        "name",
+                        "selected"
+                      ],
+                      "properties": {
+                        "xPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/xPosition",
+                          "type": "integer",
+                          "title": "The Xposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "yPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/yPosition",
+                          "type": "integer",
+                          "title": "The Yposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "pageNumber": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/pageNumber",
+                          "type": "integer",
+                          "title": "The Pagenumber Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "tabLabel": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/tabLabel",
+                          "type": "string",
+                          "title": "The Tablabel Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "selected": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/checkboxTabs/properties/selected",
+                          "type": "boolean",
+                          "title": "The Selected Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "textTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs",
+                      "type": "object",
+                      "title": "The Texttabs Schema",
+                      "required": [
+                        "xPosition",
+                        "yPosition",
+                        "pageNumber",
+                        "tabLabel",
+                        "name",
+                        "height",
+                        "width",
+                        "maxLength",
+                        "required",
+                        "font",
+                        "fontColor",
+                        "fontSize",
+                        "bold"
+                      ],
+                      "properties": {
+                        "xPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/xPosition",
+                          "type": "integer",
+                          "title": "The Xposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "yPosition": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/yPosition",
+                          "type": "integer",
+                          "title": "The Yposition Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "pageNumber": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/pageNumber",
+                          "type": "integer",
+                          "title": "The Pagenumber Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "tabLabel": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/tabLabel",
+                          "type": "string",
+                          "title": "The Tablabel Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "height": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/height",
+                          "type": "integer",
+                          "title": "The Height Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "width": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/width",
+                          "type": "integer",
+                          "title": "The Width Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "maxLength": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/maxLength",
+                          "type": "integer",
+                          "title": "The Maxlength Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "required": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/required",
+                          "type": "boolean",
+                          "title": "The Required Schema",
+                          "default": false,
+                          "examples": [
+                            false
+                          ]
+                        },
+                        "font": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/font",
+                          "type": "string",
+                          "title": "The Font Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontColor": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/fontColor",
+                          "type": "string",
+                          "title": "The Fontcolor Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "fontSize": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/fontSize",
+                          "type": "string",
+                          "title": "The Fontsize Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "bold": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/textTabs/properties/bold",
+                          "type": "boolean",
+                          "title": "The Bold Schema",
+                          "default": false,
+                          "examples": [
+                            true
+                          ]
+                        }
+                      }
+                    },
+                    "radioGroupTabs": {
+                      "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs",
+                      "type": "object",
+                      "title": "The Radiogrouptabs Schema",
+                      "required": [
+                        "groupName",
+                        "radios"
+                      ],
+                      "properties": {
+                        "groupName": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/groupName",
+                          "type": "string",
+                          "title": "The Groupname Schema",
+                          "default": "",
+                          "examples": [
+                            "string"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "radios": {
+                          "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios",
+                          "type": "array",
+                          "title": "The Radios Schema",
+                          "items": {
+                            "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": [
+                              "xPosition",
+                              "yPosition",
+                              "pageNumber",
+                              "tabId",
+                              "value",
+                              "selected",
+                              "required"
+                            ],
+                            "properties": {
+                              "xPosition": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/xPosition",
+                                "type": "integer",
+                                "title": "The Xposition Schema",
+                                "default": 0,
+                                "examples": [
+                                  0
+                                ]
+                              },
+                              "yPosition": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/yPosition",
+                                "type": "integer",
+                                "title": "The Yposition Schema",
+                                "default": 0,
+                                "examples": [
+                                  0
+                                ]
+                              },
+                              "pageNumber": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/pageNumber",
+                                "type": "integer",
+                                "title": "The Pagenumber Schema",
+                                "default": 0,
+                                "examples": [
+                                  0
+                                ]
+                              },
+                              "tabId": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/tabId",
+                                "type": "string",
+                                "title": "The Tabid Schema",
+                                "default": "",
+                                "examples": [
+                                  "string"
+                                ],
+                                "pattern": "^(.*)$"
+                              },
+                              "value": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/value",
+                                "type": "string",
+                                "title": "The Value Schema",
+                                "default": "",
+                                "examples": [
+                                  "string"
+                                ],
+                                "pattern": "^(.*)$"
+                              },
+                              "selected": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/selected",
+                                "type": "boolean",
+                                "title": "The Selected Schema",
+                                "default": false,
+                                "examples": [
+                                  true
+                                ]
+                              },
+                              "required": {
+                                "$id": "#/properties/documents/items/properties/borrowers/items/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/required",
+                                "type": "boolean",
+                                "title": "The Required Schema",
+                                "default": false,
+                                "examples": [
+                                  false
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "lender": {
+            "$id": "#/properties/documents/items/properties/lender",
+            "type": "object",
+            "title": "The Lender Schema",
+            "required": [
+              "tabs"
+            ],
+            "properties": {
+              "tabs": {
+                "$id": "#/properties/documents/items/properties/lender/properties/tabs",
+                "type": "object",
+                "title": "The Tabs Schema",
+                "required": [
+                  "approveTabs",
+                  "signHereTabs",
+                  "dateSignedTabs",
+                  "checkboxTabs",
+                  "textTabs",
+                  "radioGroupTabs"
+                ],
+                "properties": {
+                  "approveTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs",
+                    "type": "object",
+                    "title": "The Approvetabs Schema",
+                    "required": [
+                      "xPosition",
+                      "yPosition",
+                      "pageNumber",
+                      "tabLabel",
+                      "name",
+                      "height",
+                      "width",
+                      "buttonText",
+                      "font",
+                      "fontColor",
+                      "fontSize",
+                      "bold"
+                    ],
+                    "properties": {
+                      "xPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/xPosition",
+                        "type": "integer",
+                        "title": "The Xposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "yPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/yPosition",
+                        "type": "integer",
+                        "title": "The Yposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "pageNumber": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/pageNumber",
+                        "type": "integer",
+                        "title": "The Pagenumber Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "tabLabel": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/tabLabel",
+                        "type": "string",
+                        "title": "The Tablabel Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "name": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "height": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/height",
+                        "type": "integer",
+                        "title": "The Height Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "width": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/width",
+                        "type": "integer",
+                        "title": "The Width Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "buttonText": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/buttonText",
+                        "type": "string",
+                        "title": "The Buttontext Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "font": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/font",
+                        "type": "string",
+                        "title": "The Font Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontColor": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/fontColor",
+                        "type": "string",
+                        "title": "The Fontcolor Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontSize": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/fontSize",
+                        "type": "string",
+                        "title": "The Fontsize Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "bold": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/approveTabs/properties/bold",
+                        "type": "boolean",
+                        "title": "The Bold Schema",
+                        "default": false,
+                        "examples": [
+                          true
+                        ]
+                      }
+                    }
+                  },
+                  "signHereTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs",
+                    "type": "object",
+                    "title": "The Signheretabs Schema",
+                    "required": [
+                      "xPosition",
+                      "yPosition",
+                      "pageNumber",
+                      "tabLabel",
+                      "name",
+                      "scaleValue",
+                      "optional"
+                    ],
+                    "properties": {
+                      "xPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/xPosition",
+                        "type": "integer",
+                        "title": "The Xposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "yPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/yPosition",
+                        "type": "integer",
+                        "title": "The Yposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "pageNumber": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/pageNumber",
+                        "type": "integer",
+                        "title": "The Pagenumber Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "tabLabel": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/tabLabel",
+                        "type": "string",
+                        "title": "The Tablabel Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "name": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "scaleValue": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/scaleValue",
+                        "type": "integer",
+                        "title": "The Scalevalue Schema",
+                        "default": 0,
+                        "examples": [
+                          1
+                        ]
+                      },
+                      "optional": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/signHereTabs/properties/optional",
+                        "type": "boolean",
+                        "title": "The Optional Schema",
+                        "default": false,
+                        "examples": [
+                          true
+                        ]
+                      }
+                    }
+                  },
+                  "dateSignedTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs",
+                    "type": "object",
+                    "title": "The Datesignedtabs Schema",
+                    "required": [
+                      "xPosition",
+                      "yPosition",
+                      "pageNumber",
+                      "tabLabel",
+                      "name",
+                      "font",
+                      "fontColor",
+                      "fontSize",
+                      "bold"
+                    ],
+                    "properties": {
+                      "xPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/xPosition",
+                        "type": "integer",
+                        "title": "The Xposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "yPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/yPosition",
+                        "type": "integer",
+                        "title": "The Yposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "pageNumber": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/pageNumber",
+                        "type": "integer",
+                        "title": "The Pagenumber Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "tabLabel": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/tabLabel",
+                        "type": "string",
+                        "title": "The Tablabel Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "name": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "font": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/font",
+                        "type": "string",
+                        "title": "The Font Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontColor": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/fontColor",
+                        "type": "string",
+                        "title": "The Fontcolor Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontSize": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/fontSize",
+                        "type": "string",
+                        "title": "The Fontsize Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "bold": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/dateSignedTabs/properties/bold",
+                        "type": "boolean",
+                        "title": "The Bold Schema",
+                        "default": false,
+                        "examples": [
+                          true
+                        ]
+                      }
+                    }
+                  },
+                  "checkboxTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs",
+                    "type": "object",
+                    "title": "The Checkboxtabs Schema",
+                    "required": [
+                      "xPosition",
+                      "yPosition",
+                      "pageNumber",
+                      "tabLabel",
+                      "name",
+                      "selected"
+                    ],
+                    "properties": {
+                      "xPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/xPosition",
+                        "type": "integer",
+                        "title": "The Xposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "yPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/yPosition",
+                        "type": "integer",
+                        "title": "The Yposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "pageNumber": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/pageNumber",
+                        "type": "integer",
+                        "title": "The Pagenumber Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "tabLabel": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/tabLabel",
+                        "type": "string",
+                        "title": "The Tablabel Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "name": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "selected": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/checkboxTabs/properties/selected",
+                        "type": "boolean",
+                        "title": "The Selected Schema",
+                        "default": false,
+                        "examples": [
+                          true
+                        ]
+                      }
+                    }
+                  },
+                  "textTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs",
+                    "type": "object",
+                    "title": "The Texttabs Schema",
+                    "required": [
+                      "xPosition",
+                      "yPosition",
+                      "pageNumber",
+                      "tabLabel",
+                      "name",
+                      "height",
+                      "width",
+                      "maxLength",
+                      "required",
+                      "font",
+                      "fontColor",
+                      "fontSize",
+                      "bold"
+                    ],
+                    "properties": {
+                      "xPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/xPosition",
+                        "type": "integer",
+                        "title": "The Xposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "yPosition": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/yPosition",
+                        "type": "integer",
+                        "title": "The Yposition Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "pageNumber": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/pageNumber",
+                        "type": "integer",
+                        "title": "The Pagenumber Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "tabLabel": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/tabLabel",
+                        "type": "string",
+                        "title": "The Tablabel Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "name": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "height": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/height",
+                        "type": "integer",
+                        "title": "The Height Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "width": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/width",
+                        "type": "integer",
+                        "title": "The Width Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "maxLength": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/maxLength",
+                        "type": "integer",
+                        "title": "The Maxlength Schema",
+                        "default": 0,
+                        "examples": [
+                          0
+                        ]
+                      },
+                      "required": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/required",
+                        "type": "boolean",
+                        "title": "The Required Schema",
+                        "default": false,
+                        "examples": [
+                          false
+                        ]
+                      },
+                      "font": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/font",
+                        "type": "string",
+                        "title": "The Font Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontColor": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/fontColor",
+                        "type": "string",
+                        "title": "The Fontcolor Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "fontSize": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/fontSize",
+                        "type": "string",
+                        "title": "The Fontsize Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "bold": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/textTabs/properties/bold",
+                        "type": "boolean",
+                        "title": "The Bold Schema",
+                        "default": false,
+                        "examples": [
+                          true
+                        ]
+                      }
+                    }
+                  },
+                  "radioGroupTabs": {
+                    "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs",
+                    "type": "object",
+                    "title": "The Radiogrouptabs Schema",
+                    "required": [
+                      "groupName",
+                      "radios"
+                    ],
+                    "properties": {
+                      "groupName": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/groupName",
+                        "type": "string",
+                        "title": "The Groupname Schema",
+                        "default": "",
+                        "examples": [
+                          "string"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "radios": {
+                        "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios",
+                        "type": "array",
+                        "title": "The Radios Schema",
+                        "items": {
+                          "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items",
+                          "type": "object",
+                          "title": "The Items Schema",
+                          "required": [
+                            "xPosition",
+                            "yPosition",
+                            "pageNumber",
+                            "tabId",
+                            "value",
+                            "selected",
+                            "required"
+                          ],
+                          "properties": {
+                            "xPosition": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/xPosition",
+                              "type": "integer",
+                              "title": "The Xposition Schema",
+                              "default": 0,
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "yPosition": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/yPosition",
+                              "type": "integer",
+                              "title": "The Yposition Schema",
+                              "default": 0,
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "pageNumber": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/pageNumber",
+                              "type": "integer",
+                              "title": "The Pagenumber Schema",
+                              "default": 0,
+                              "examples": [
+                                0
+                              ]
+                            },
+                            "tabId": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/tabId",
+                              "type": "string",
+                              "title": "The Tabid Schema",
+                              "default": "",
+                              "examples": [
+                                "string"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "value": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/value",
+                              "type": "string",
+                              "title": "The Value Schema",
+                              "default": "",
+                              "examples": [
+                                "string"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "selected": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/selected",
+                              "type": "boolean",
+                              "title": "The Selected Schema",
+                              "default": false,
+                              "examples": [
+                                true
+                              ]
+                            },
+                            "required": {
+                              "$id": "#/properties/documents/items/properties/lender/properties/tabs/properties/radioGroupTabs/properties/radios/items/properties/required",
+                              "type": "boolean",
+                              "title": "The Required Schema",
+                              "default": false,
+                              "examples": [
+                                false
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "isWetsign": {
+            "$id": "#/properties/documents/items/properties/isWetsign",
+            "type": "boolean",
+            "title": "The Iswetsign Schema",
+            "default": false,
+            "examples": [
+              true
+            ]
+          }
+        }
+      }
+    },
+    "recipients": {
+      "$id": "#/properties/recipients",
+      "type": "object",
+      "title": "The Recipients Schema",
+      "required": [
+        "borrowers"
+      ],
+      "properties": {
+        "borrowers": {
+          "$id": "#/properties/recipients/properties/borrowers",
+          "type": "array",
+          "title": "The Borrowers Schema",
+          "items": {
+            "$id": "#/properties/recipients/properties/borrowers/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "$id": "#/properties/recipients/properties/borrowers/items/properties/id",
+                "type": "string",
+                "title": "The Id Schema",
+                "default": "",
+                "examples": [
+                  "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

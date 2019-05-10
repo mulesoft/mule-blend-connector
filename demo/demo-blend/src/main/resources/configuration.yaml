@@ -1,0 +1,12 @@
+blend:
+  baseurl: "https://api.beta.blendlabs.com/"
+  username: "86c4aac0967d47a69b3080a7c8c09db2"
+  password: "xe3OF4mDFJApAdoLkdz4gHKMGjRyDjSe"
+  x-blend-special-instance-id: "apisero"
+  x-blend-deployment: "blend-borrower"
+  
+sfdc: 
+  uname: "connector.dev@apisero.com"
+  pass: "Test@123"
+  token: "n1gQHdbWkj2Ou3Go16x76Ihz"
+ 
