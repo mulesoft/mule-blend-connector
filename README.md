@@ -15,7 +15,7 @@ Min version: Mule 4.1.0.
 Service or application supported modules
 ----------------
 
-Blend API v2.0.1
+Blend API v2.0.0
 
 Installation and Usage
 ----------------------
