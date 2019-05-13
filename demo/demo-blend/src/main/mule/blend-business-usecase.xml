@@ -60,17 +60,17 @@ http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mu
   }
 }]]]></blend:loan-body>
 		</blend:post-loan>
-		<set-variable value="#[payload.id]" doc:name="Set loanId" doc:id="58041b57-20b3-4d80-b2e5-99bd6fd3e6c9" variableName="loanId" />
-		<salesforce:create doc:name="Create an account in SF" doc:id="ccba9603-9af9-4338-a94b-33354dfec698" config-ref="Salesforce_Config" type="Contact">
+		<set-variable value="#[payload.id]" doc:name="Capture loanId" doc:id="58041b57-20b3-4d80-b2e5-99bd6fd3e6c9" variableName="loanId" />
+		<salesforce:create doc:name="Create a borrower in SF" doc:id="ccba9603-9af9-4338-a94b-33354dfec698" config-ref="Salesforce_Config" type="Contact">
 			<salesforce:records><![CDATA[#[[{
-	"LastName": "Raymond12",
-	"FirstName": "Collin12",
-	"Email": "collin_ray12@blend.com",
+	"LastName": "Raymond",
+	"FirstName": "Collin",
+	"Email": "collin_ray@blend.com",
 	"Loanid__c": vars.loanId
 }]]]]></salesforce:records>
 
 		</salesforce:create>
-		<salesforce:query-single doc:name="Query single" doc:id="10bb3812-c6b1-4684-b105-23116e0c599d" config-ref="Salesforce_Config">
+		<salesforce:query-single doc:name="Query created borrower" doc:id="10bb3812-c6b1-4684-b105-23116e0c599d" config-ref="Salesforce_Config">
 			<salesforce:salesforce-query>SELECT email,firstname, lastname,Id from Contact where id = ':id'
 </salesforce:salesforce-query>
 			<salesforce:parameters><![CDATA[#[output application/java
@@ -124,7 +124,7 @@ output application/json
 		</blend:patch-borrower>
 		<blend:delete-borrower doc:name="Delete borrower" doc:id="195a6ca3-df7f-4c84-9de5-2101433451f6" config-ref="Blend_Config" borrowerId="#[payload.id]"/>
 		<blend:get-loan-borrowers doc:name="Get loan borrowers" doc:id="5532360e-f161-47c7-bf2e-489c80716164" config-ref="Blend_Config" loanId="#[vars.loanId]"/>
-		<ee:transform doc:name="Transform Message" doc:id="158a2936-0067-4e3f-8d08-329019a7f54c" >
+		<ee:transform doc:name="Display all borrowers on loan" doc:id="158a2936-0067-4e3f-8d08-329019a7f54c" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
@@ -134,14 +134,14 @@ payload]]></ee:set-payload>
 		</ee:transform>
 	</flow>
 	<flow name="purge-SF" doc:id="58c163da-496a-474b-9ebc-2dbf0d011af9" >
-		<http:listener doc:name="Listener" doc:id="42f1438e-8d5a-4070-bac7-0f6369219905" config-ref="HTTP_Listener_config" path="/deleteAllSF"/>
-		<salesforce:query-all doc:name="Query all" doc:id="fd4c9abc-9fbb-468d-9097-b8bb8c21d7d2" config-ref="Salesforce_Config">
-			<salesforce:salesforce-query >SELECT Id from contact where name like '%Raymond%'</salesforce:salesforce-query>
+		<http:listener doc:name="8081/deleteAllSF" doc:id="42f1438e-8d5a-4070-bac7-0f6369219905" config-ref="HTTP_Listener_config" path="/deleteAllSF"/>
+		<salesforce:query-all doc:name="Query created contacts" doc:id="fd4c9abc-9fbb-468d-9097-b8bb8c21d7d2" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >SELECT Id from contact where name like '%Ray%'</salesforce:salesforce-query>
 		</salesforce:query-all>
-		<salesforce:delete doc:name="Delete" doc:id="65ea3bcf-2d9c-41d4-bc14-c928fbcc31a3" config-ref="Salesforce_Config">
-			<salesforce:delete-ids ><![CDATA[#[[payload.Id]]]]></salesforce:delete-ids>
+		<salesforce:delete doc:name="Delete created contacts" doc:id="65ea3bcf-2d9c-41d4-bc14-c928fbcc31a3" config-ref="Salesforce_Config">
+			<salesforce:delete-ids ><![CDATA[#[payload.Id]]]></salesforce:delete-ids>
 		</salesforce:delete>
-		<ee:transform doc:name="Delete Response" doc:id="e1c6399e-4075-4276-be08-95b6bb639b4b" >
+		<ee:transform doc:name="Display deleted Ids" doc:id="e1c6399e-4075-4276-be08-95b6bb639b4b" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json

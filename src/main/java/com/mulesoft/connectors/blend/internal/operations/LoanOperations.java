@@ -37,8 +37,8 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      * @param configuration    Blend configurations
      * @param connection      Blend connection object
      * @param limit           The number of loans to be provided for this call. Minimum is 1, maximum is 100, default is 50.
-     * @param cursor          An opaque string used for pagination, pass the cursor back to start at this position
-     * @param losIdExists     If losId-exists is true, then the response only contains loans that have losId set. If losId-exists is false, then the response only contains loans that do not have losId set. Otherwise, the response returns loans independent of the losId field.
+     * @param cursor          An opaque string used for pagination, pass the cursor back to start at this position.
+     * @param losIdExists     If losIdExists is true, then the response only contains loans that have losId set. If losIdExists is false, then the response only contains loans that do not have losId set. Otherwise, the response returns loans independent of the losId field.
      * @param crmIdEQ         Filters the list of loans to loans that have the same crmId.
      * @param borrowerEmailEQ Filters the list of loans to loans that have the same borrower email.
      * @param losIdEQ         Filters the list of loans to loans that have the same losId.
@@ -46,7 +46,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      * @return List of paginated loans, with cursors to go the next or previous pages.
      */
 
-    @DisplayName("Get loans")
+    @DisplayName("Get Active Loans")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-loans-schema.json")
@@ -67,7 +67,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Get Export Statuses
+     * Get export statuses.
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
@@ -75,7 +75,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      * @return Export statuses
      */
 
-    @DisplayName("Get export status")
+    @DisplayName("Get Export Statuses")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-export-schema.json")
@@ -92,13 +92,13 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
-     * @param loanId     Loan id
+     * @param loanId     Loan ID
      * @param format     Response format
-     * @param version    There is no version requirement for json. Fannie version must be 3.2. Mismo version must be 3.3.1.
+     * @param version    There is no version requirement for json. Fannie version must be 3.2. MISMO version must be 3.3.1.
      * @return loan details in given format
      */
 
-    @DisplayName("Get loan data")
+    @DisplayName("Get Loan Data")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-loan-data-response-schema.json")
@@ -119,12 +119,12 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      *
      * @param configuration       Blend configurations
      * @param connection          Blend connection object
-     * @param loanId              Loan id
+     * @param loanId              Loan ID
      * @param includeAllExports   If true, the los exported at time in the response will be that of the latest export (if one exists) by any paradigm. If false/not provided, the losExportedAt time in the response will correspond to the latest export (if one exists) by the paradigm of the current caller.
      * @param includeAllDocuments If true, returns a list of all the documents on the loan, including signature pending documents.
      * @return List of documents
      */
-    @DisplayName("Get loan documents")
+    @DisplayName("Get Loan Documents")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-loan-documents.json")
@@ -140,15 +140,15 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Get the list of borrower pairs on the loan (relevant for mortgage loans)
+     * Get the list of borrower pairs on the loan (relevant for mortgage loans).
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
-     * @param loanId     Loan id
+     * @param loanId     Loan ID
      * @return Loan application Details
      */
 
-    @DisplayName("Get loan application details")
+    @DisplayName("Get Borrower Pairs")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON)
     @OutputJsonType(schema = "metadata/get-loan-application-details-schema.json")
@@ -161,15 +161,15 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Update export status on a loan
+     * Update export status on a loan.
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
-     * @param loanId     Loan id
-     * @param body       Export status and reason for that status
+     * @param loanId     Loan ID
+     * @param body       Export status and reason for that status.
      * @return Export status schema.
      */
-    @DisplayName("Post export status")
+    @DisplayName("Update Loan Export Status")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/export-status-schema.json")
@@ -210,15 +210,15 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Bulk update a list of loans to be on specific los milestones
+     * Bulk update a list of loans to be on specific los milestones.
      *
      * @param configuration    Blend configurations
      * @param connection        Blend connection object
-     * @param losMilestonesBody List of loan ids and the milestones to update to
-     * @return All milestones updated successfully with status and loan id.
+     * @param losMilestonesBody List of loan IDs and the milestones to update to.
+     * @return All milestones updated successfully with status and loan ID.
      */
 
-    @DisplayName("Post los milestones")
+    @DisplayName("Bulk Update Los Milestones")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/post-losmilestone-response-schema.json")
@@ -233,6 +233,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
     }
 
 
+
     /**
      * Update properties on a specific loan.
      *
@@ -245,7 +246,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      */
 
 
-    @DisplayName("Patch loan")
+    @DisplayName("Update Loan Properties")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     public Result<InputStream, ResponseStatus> patchLoan(@Config BlendlabsConfiguration configuration, @Connection BlendlabsConnection connection,
@@ -260,17 +261,17 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Update the location of borrowers on the loan (by 1003/borrower pairing and location on the borrower pair)
+     * Update the location of borrowers on the loan (by 1003/borrower pairing and location on the borrower pair).
      *
      * @param configuration    Blend configurations
      * @param connection                    Blend connection object
-     * @param loanId                        Loan id
+     * @param loanId                        Loan ID
      * @param putLoanApplicationDetailsBody New borrower pair
      * @return Successful update
      */
 
 
-    @DisplayName("Put loan application details")
+    @DisplayName("Update Loan Borrowers Location")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = ANY, strict = false)
     public Result<InputStream, ResponseStatus> putLoanApplicationDetails(@Config BlendlabsConfiguration configuration, @Connection BlendlabsConnection connection,
@@ -287,7 +288,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
 
 
     /**
-     * Get a list of borrowers on the loan
+     * Get a list of borrowers on the loan.
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
@@ -297,7 +298,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      */
 
 
-    @DisplayName("Get loan borrowers")
+    @DisplayName("Get Loan Borrowers")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-loan-borrowers-schema.json")

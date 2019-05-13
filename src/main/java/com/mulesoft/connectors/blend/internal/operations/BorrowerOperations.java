@@ -44,7 +44,7 @@ public class  BorrowerOperations extends ConnectorOperations<BlendlabsConfigurat
      */
 
 
-    @DisplayName("Post borrower")
+    @DisplayName("Create a Borrower")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/post-borrower-schema.json")
@@ -61,12 +61,12 @@ public class  BorrowerOperations extends ConnectorOperations<BlendlabsConfigurat
      *
      * @param configuration    Blend configurations
      * @param connection        Blend connection object
-     * @param borrowerId        Borrower id
+     * @param borrowerId        Borrower ID
      * @param patchBorrowerBody Borrower update parameters
-     * @return Updated borrower success message
+     * @return Success message.
      */
 
-    @DisplayName("Patch borrower")
+    @DisplayName("Update a Borrower")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/post-borrower-schema.json")
@@ -82,16 +82,17 @@ public class  BorrowerOperations extends ConnectorOperations<BlendlabsConfigurat
 
 
     /**
+     /**
      * Delete borrower from a specific loan.
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
-     * @param borrowerId Borrower id
-     * @return Successful deletion
+     * @param borrowerId Borrower ID
+     * @return Successful deletion message.
      */
 
 
-    @DisplayName("Delete borrower")
+    @DisplayName("Delete a Borrower")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = ANY, strict = false)
     public Result<InputStream, ResponseStatus> deleteBorrower(@Config BlendlabsConfiguration configuration,

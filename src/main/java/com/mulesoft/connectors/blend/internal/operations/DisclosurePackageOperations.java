@@ -31,6 +31,7 @@ public class DisclosurePackageOperations extends ConnectorOperations<BlendlabsCo
     }
 
 
+
     /**
      * Retrieves status and metadata for all disclosures packages on a specific loan.
      *
@@ -38,10 +39,10 @@ public class DisclosurePackageOperations extends ConnectorOperations<BlendlabsCo
      * @param connection Blend connection object
      * @param loanId     Loan id to filter disclosures packages by
      * @param status     Disclosures package status to filter by
-     * @return Disclosures package list
+     * @return Disclosures package list.
      */
 
-    @DisplayName("Get disclosures packages")
+    @DisplayName("Get Disclosures Packages")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-disclosures-packages-schema.json")

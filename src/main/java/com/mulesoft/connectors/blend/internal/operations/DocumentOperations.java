@@ -31,22 +31,23 @@ public class DocumentOperations extends ConnectorOperations<BlendlabsConfigurati
     }
 
 
+
     /**
-     * Get a paginated list of documents
+     * Get a paginated list of documents.
      *
-     * @param configuration    Blend configurations
+     * @param configuration     Blend configurations
      * @param connection        Blend connection object
      * @param limit             The number of loans to be provided for this call. Minimum is 1, maximum is 100, default is 50.
      * @param cursor            An opaque string used for pagination, pass the cursor back to start at this position
      * @param exported          If exported is true, then the response only contains documents that have already been exported. If exported is false, then the response only contains documents that have not already been exported. Otherwise, the response returns documents independent of the exported field.
-     * @param includeAllExports If true, the losExportedAt time in the response will be that of the latest export (if one exists) by any paradigm. If false/not provided, the losExportedAt time in the response will correspond to the latest export (if one exists) by the paradigm of the current caller.
-     * @param uploadedAfter     Returns only documents uploaded after this time (UNIX milliseconds since epoch)
-     * @param uploadedBefore    Returns only documents uploaded before this time (UNIX milliseconds since epoch)
-     * @param statusIncludes    Comma delimited string of document statuses to filter for
+     * @param includeAllExports If true, the losExportedAt time in the response will be that of the latest export (if one exists) by any paradigm. If false/not provided, the losExportedAt time in the response corresponds to the latest export (if one exists) by the paradigm of the current caller.
+     * @param uploadedAfter     Returns only documents uploaded after this time (UNIX milliseconds since epoch).
+     * @param uploadedBefore    Returns only documents uploaded before this time (UNIX milliseconds since epoch).
+     * @param statusIncludes    Comma delimited string of document statuses to filter for.
      * @return List of paginated documents, with cursors to go the next or previous pages.
      */
 
-    @DisplayName("Get documents")
+    @DisplayName("Get Documents")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/get-documents.json")
@@ -67,14 +68,14 @@ public class DocumentOperations extends ConnectorOperations<BlendlabsConfigurati
     }
 
     /**
-     * Download the file associated with a document
+     * Download the file associated with a document.
      *
      * @param configuration    Blend configurations
      * @param connection Blend connection object
-     * @param documentID Document id
+     * @param documentID Document ID
      * @return Document binary data
      */
-    @DisplayName("Get document data")
+    @DisplayName("Get Document Data")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = ANY, strict = false)
     public Result<InputStream, ResponseStatus> getDocumentData(@Config BlendlabsConfiguration configuration, @Connection BlendlabsConnection connection, String documentID) {
@@ -91,7 +92,7 @@ public class DocumentOperations extends ConnectorOperations<BlendlabsConfigurati
      * @param documentsBody Document request schema
      * @return Document schema
      */
-    @DisplayName("Post document")
+    @DisplayName("Create a Document")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/post-document-output-schema.json")

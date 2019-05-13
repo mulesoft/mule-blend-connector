@@ -31,15 +31,15 @@ public class RealtorOperations extends ConnectorOperations<BlendlabsConfiguratio
 
 
     /**
-     * Add realtor to loan
+     * Add realtor to loan.
      *
      * @param configuration    Blend configurations
      * @param connection      Blend connection object
      * @param postRealtorBody Realtor request schema
-     * @return Realtor created with id
+     * @return Realtor created with ID.
      */
 
-    @DisplayName("Post realtor")
+    @DisplayName("Add a Realtor")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/realtor-response-schema.json")
