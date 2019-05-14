@@ -49,8 +49,8 @@
         </dependency>
          </dependencies>
     <scm>
-        <connection>scm:git:nehasharma2019@github.com/integration-industries-salesforce/mule-blend-connector.git</connection>
-        <developerConnection>scm:git:nehasharma2019@github.com/integration-industries-salesforce/mule-blend-connector.git</developerConnection>
+        <connection>scm:git:git@github.com:integration-industries-salesforce/mule-blend-connector.git</connection>
+        <developerConnection>scm:git:git@github.com:integration-industries-salesforce/mule-blend-connector.git</developerConnection>
         <url>https://github.com/integration-industries-salesforce/mule-blend-connector</url>
 		<tag>mule-blend-connector-1.0.0</tag>
 	</scm>
