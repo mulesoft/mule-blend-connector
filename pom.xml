@@ -48,13 +48,13 @@
             <version>2.0.0</version>
         </dependency>
          </dependencies>
-    <!--scm>
-        <connection>scm:git:ssh://sandeep-maddineni@bitbucket.org/ApiseroCloud/blendconnector.git</connection>
-        <developerConnection>scm:git:ssh://sandeep-maddineni@bitbucket.org/ApiseroCloud/blendconnector.git</developerConnection>
-        <url>https://sandeep-maddineni@bitbucket.org/ApiseroCloud/blendconnector.git</url>
-        <tag>HEAD</tag>
-    </scm-->
-    <build>
+    <scm>
+        <connection>scm:git:nehasharma2019@github.com/integration-industries-salesforce/mule-blend-connector.git</connection>
+        <developerConnection>scm:git:nehasharma2019@github.com/integration-industries-salesforce/mule-blend-connector.git</developerConnection>
+        <url>https://github.com/integration-industries-salesforce/mule-blend-connector</url>
+		<tag>mule-blend-connector-1.0.0</tag>
+	</scm>
+	<build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
