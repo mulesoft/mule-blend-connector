@@ -1,0 +1,109 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "PostBorrowerResponseSchema",
+  "required": [
+    "id",
+    "loanId",
+    "type",
+    "name",
+    "email"
+  ],
+  "properties": {
+    "id": {
+      "$id": "#/properties/id",
+      "type": "string",
+      "title": "The Id Schema",
+      "default": "",
+      "examples": [
+        "6bb8f930-ec6c-462a-93a3-6cc56adc6e36"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "loanId": {
+      "$id": "#/properties/loanId",
+      "type": "string",
+      "title": "The Loanid Schema",
+      "default": "",
+      "examples": [
+        "652a68af-f16c-4ee9-b0b2-0cde3659a1a6"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "The Type Schema",
+      "default": "",
+      "examples": [
+        "COBORROWER"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "name": {
+      "$id": "#/properties/name",
+      "type": "object",
+      "title": "The Name Schema",
+      "required": [
+        "firstName",
+        "middleName",
+        "lastName",
+        "suffixName"
+      ],
+      "properties": {
+        "firstName": {
+          "$id": "#/properties/name/properties/firstName",
+          "type": "string",
+          "title": "The Firstname Schema",
+          "default": "",
+          "examples": [
+            "Kanna"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "middleName": {
+          "$id": "#/properties/name/properties/middleName",
+          "type": "string",
+          "title": "The Middlename Schema",
+          "default": "",
+          "examples": [
+            "M"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "lastName": {
+          "$id": "#/properties/name/properties/lastName",
+          "type": "string",
+          "title": "The Lastname Schema",
+          "default": "",
+          "examples": [
+            "Doe"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "suffixName": {
+          "$id": "#/properties/name/properties/suffixName",
+          "type": "string",
+          "title": "The Suffixname Schema",
+          "default": "",
+          "examples": [
+            "III"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "email": {
+      "$id": "#/properties/email",
+      "type": "string",
+      "title": "The Email Schema",
+      "default": "",
+      "examples": [
+        "johnhernandez2@example.com"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="getDocuments" doc:id="1bbd29f3-5f66-4360-93d1-2d31160fe7a5" >
+		<http:listener doc:name="8081/getDocuments" doc:id="4259732e-63d8-48dc-8110-8dbda14542cc" config-ref="HTTP_Listener_config" path="/getDocuments"/>
+		<blend:get-documents doc:name="Get documents" doc:id="88a1beab-2e21-442c-bfe1-f46324f116d2" config-ref="Blend_Config" limit="100"/>
+		<ee:transform doc:name="Transform Message" doc:id="02fba58a-2866-4703-96eb-ee0ea1f0cf10" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	
+	</mule>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="patchLoan" doc:id="e30b638d-5f68-4c31-b99a-71b86daf0140" >
+		<http:listener doc:name="8081/patchLoan/:loanId" doc:id="2934c628-b4b5-4d81-a28c-6c3df5d97010" config-ref="HTTP_Listener_config" path="/patchLoan/{loanId}"/>
+		<blend:patch-loan doc:name="Patch loan" doc:id="588a643f-716e-4314-8108-87def78d656b" config-ref="Blend_Config" loanId="#[attributes.uriParams.loanId]" outputMimeType="application/json">
+		</blend:patch-loan>
+		<ee:transform doc:name="Transform Message" doc:id="46bf83b0-6284-4648-8c94-2a154c4b9b66" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="b07f3a9e-281d-4676-a581-df94afab74e3" />
+	</flow>
+</mule>

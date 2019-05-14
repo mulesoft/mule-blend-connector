@@ -1,0 +1,48 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "PutLoanApplicationInputSchema",
+  "required": [
+    "borrowerPairs"
+  ],
+  "properties": {
+    "borrowerPairs": {
+      "$id": "#/properties/borrowerPairs",
+      "type": "array",
+      "title": "The Borrowerpairs Schema",
+      "items": {
+        "$id": "#/properties/borrowerPairs/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "primaryBorrowerId",
+          "secondaryBorrowerId"
+        ],
+        "properties": {
+          "primaryBorrowerId": {
+            "$id": "#/properties/borrowerPairs/items/properties/primaryBorrowerId",
+            "type": "string",
+            "title": "The Primaryborrowerid Schema",
+            "default": "",
+            "examples": [
+              "1001db24-14b2-4179-8e1e-08bbb2fb94b3"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "secondaryBorrowerId": {
+            "$id": "#/properties/borrowerPairs/items/properties/secondaryBorrowerId",
+            "type": "string",
+            "title": "The Secondaryborrowerid Schema",
+            "default": "",
+            "examples": [
+              "56632a12-1bd7-4014-8571-cff53c346738"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}

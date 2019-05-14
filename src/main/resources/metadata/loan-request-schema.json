@@ -1,0 +1,421 @@
+{
+  "$id": "https://example.com/geographical-location.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Loan Request",
+  "type": "object",
+  "title": "LoanRequestSchema",
+  "required": [
+    "loanType",
+    "applicationType",
+    "loanPurposeType",
+    "propertyType",
+    "propertySearchType",
+    "propertyUsageType",
+    "loanAmount",
+    "propertyValue",
+    "propertyAddress",
+    "borrower",
+    "leadId",
+    "crmId",
+    "losId",
+    "referenceNumber",
+    "referrerEmail",
+    "sendEmailInvite",
+    "applicationTemplateId",
+    "applicationSource"
+  ],
+  "properties": {
+    "loanType": {
+      "$id": "#/properties/loanType",
+      "type": "string",
+      "title": "The Loantype Schema",
+      "default": "",
+      "examples": [
+        "MORTGAGE"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "applicationType": {
+      "$id": "#/properties/applicationType",
+      "type": "string",
+      "title": "The Applicationtype Schema",
+      "default": "",
+      "examples": [
+        "FULL_APPLICATION"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "loanPurposeType": {
+      "$id": "#/properties/loanPurposeType",
+      "type": "string",
+      "title": "The Loanpurposetype Schema",
+      "default": "",
+      "examples": [
+        "PURCHASE"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "propertyType": {
+      "$id": "#/properties/propertyType",
+      "type": "string",
+      "title": "The Propertytype Schema",
+      "default": "",
+      "examples": [
+        "SINGLE_FAMILY"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "propertySearchType": {
+      "$id": "#/properties/propertySearchType",
+      "type": "string",
+      "title": "The Propertysearchtype Schema",
+      "default": "",
+      "examples": [
+        "NOT_STARTED"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "propertyUsageType": {
+      "$id": "#/properties/propertyUsageType",
+      "type": "string",
+      "title": "The Propertyusagetype Schema",
+      "default": "",
+      "examples": [
+        "PRIMARY_RESIDENCE"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "loanAmount": {
+      "$id": "#/properties/loanAmount",
+      "type": "integer",
+      "title": "The Loanamount Schema",
+      "default": 0,
+      "examples": [
+        100000
+      ]
+    },
+    "propertyValue": {
+      "$id": "#/properties/propertyValue",
+      "type": "integer",
+      "title": "The Propertyvalue Schema",
+      "default": 0,
+      "examples": [
+        200000
+      ]
+    },
+    "propertyAddress": {
+      "$id": "#/properties/propertyAddress",
+      "type": "object",
+      "title": "The Propertyaddress Schema",
+      "required": [
+        "streetAddressLine1",
+        "streetAddressLine2",
+        "city",
+        "state",
+        "zipCode",
+        "zipCodePlusFour"
+      ],
+      "properties": {
+        "streetAddressLine1": {
+          "$id": "#/properties/propertyAddress/properties/streetAddressLine1",
+          "type": "string",
+          "title": "The Streetaddressline1 Schema",
+          "default": "",
+          "examples": [
+            "100 Main St"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "streetAddressLine2": {
+          "$id": "#/properties/propertyAddress/properties/streetAddressLine2",
+          "type": "string",
+          "title": "The Streetaddressline2 Schema",
+          "default": "",
+          "examples": [
+            "Apt 10"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "city": {
+          "$id": "#/properties/propertyAddress/properties/city",
+          "type": "string",
+          "title": "The City Schema",
+          "default": "",
+          "examples": [
+            "Chicago"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "state": {
+          "$id": "#/properties/propertyAddress/properties/state",
+          "type": "string",
+          "title": "The State Schema",
+          "default": "",
+          "examples": [
+            "IL"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "zipCode": {
+          "$id": "#/properties/propertyAddress/properties/zipCode",
+          "type": "string",
+          "title": "The Zipcode Schema",
+          "default": "",
+          "examples": [
+            "60007"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "zipCodePlusFour": {
+          "$id": "#/properties/propertyAddress/properties/zipCodePlusFour",
+          "type": "string",
+          "title": "The Zipcodeplusfour Schema",
+          "default": "",
+          "examples": [
+            "1000"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "borrower": {
+      "$id": "#/properties/borrower",
+      "type": "object",
+      "title": "The Borrower Schema",
+      "required": [
+        "name",
+        "email",
+        "SSN",
+        "dateOfBirth",
+        "homePhone",
+        "currentAddress"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/borrower/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "string"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "email": {
+          "$id": "#/properties/borrower/properties/email",
+          "type": "string",
+          "title": "The Email Schema",
+          "default": "",
+          "examples": [
+            "johnhernandez@mail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "SSN": {
+          "$id": "#/properties/borrower/properties/SSN",
+          "type": "string",
+          "title": "The Ssn Schema",
+          "default": "",
+          "examples": [
+            "000113933"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "dateOfBirth": {
+          "$id": "#/properties/borrower/properties/dateOfBirth",
+          "type": "integer",
+          "title": "The Dateofbirth Schema",
+          "default": 0,
+          "examples": [
+            801385200000
+          ]
+        },
+        "homePhone": {
+          "$id": "#/properties/borrower/properties/homePhone",
+          "type": "string",
+          "title": "The Homephone Schema",
+          "default": "",
+          "examples": [
+            "1112223333"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "currentAddress": {
+          "$id": "#/properties/borrower/properties/currentAddress",
+          "type": "object",
+          "title": "The Currentaddress Schema",
+          "required": [
+            "streetAddressLine1",
+            "streetAddressLine2",
+            "city",
+            "state",
+            "zipCode",
+            "zipCodePlusFour"
+          ],
+          "properties": {
+            "streetAddressLine1": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/streetAddressLine1",
+              "type": "string",
+              "title": "The Streetaddressline1 Schema",
+              "default": "",
+              "examples": [
+                "100 Main St"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "streetAddressLine2": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/streetAddressLine2",
+              "type": "string",
+              "title": "The Streetaddressline2 Schema",
+              "default": "",
+              "examples": [
+                "Apt 10"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "city": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/city",
+              "type": "string",
+              "title": "The City Schema",
+              "default": "",
+              "examples": [
+                "Chicago"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "state": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/state",
+              "type": "string",
+              "title": "The State Schema",
+              "default": "",
+              "examples": [
+                "IL"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "zipCode": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/zipCode",
+              "type": "string",
+              "title": "The Zipcode Schema",
+              "default": "",
+              "examples": [
+                "60007"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "zipCodePlusFour": {
+              "$id": "#/properties/borrower/properties/currentAddress/properties/zipCodePlusFour",
+              "type": "string",
+              "title": "The Zipcodeplusfour Schema",
+              "default": "",
+              "examples": [
+                "1000"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    },
+    "leadId": {
+      "$id": "#/properties/leadId",
+      "type": "string",
+      "title": "The Leadid Schema",
+      "default": "",
+      "examples": [
+        "leadId1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "crmId": {
+      "$id": "#/properties/crmId",
+      "type": "string",
+      "title": "The Crmid Schema",
+      "default": "",
+      "examples": [
+        "crmId1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "losId": {
+      "$id": "#/properties/losId",
+      "type": "string",
+      "title": "The Losid Schema",
+      "default": "",
+      "examples": [
+        "losId1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "referenceNumber": {
+      "$id": "#/properties/referenceNumber",
+      "type": "string",
+      "title": "The Referencenumber Schema",
+      "default": "",
+      "examples": [
+        "100"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "referrerEmail": {
+      "$id": "#/properties/referrerEmail",
+      "type": "string",
+      "title": "The Referreremail Schema",
+      "default": "",
+      "examples": [
+        "loanOfficer@bank.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "sendEmailInvite": {
+      "$id": "#/properties/sendEmailInvite",
+      "type": "boolean",
+      "title": "The Sendemailinvite Schema",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
+    "applicationTemplateId": {
+      "$id": "#/properties/applicationTemplateId",
+      "type": "string",
+      "title": "The Applicationtemplateid Schema",
+      "default": "",
+      "examples": [
+        "fd658b97-f901-4b14-b693-4654d276c909"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "applicationSource": {
+      "$id": "#/properties/applicationSource",
+      "type": "object",
+      "title": "The Applicationsource Schema",
+      "required": [
+        "type",
+        "name"
+      ],
+      "properties": {
+        "type": {
+          "$id": "#/properties/applicationSource/properties/type",
+          "type": "string",
+          "title": "The Type Schema",
+          "default": "",
+          "examples": [
+            "LOS"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "name": {
+          "$id": "#/properties/applicationSource/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "string"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}

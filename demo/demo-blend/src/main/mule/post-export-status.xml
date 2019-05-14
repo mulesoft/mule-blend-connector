@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="postExportStatus" doc:id="80346ed8-160c-44d5-be19-6af5fc463897" >
+		<http:listener doc:name="8081/postExportStatus/:loanId" doc:id="9512c721-d3ad-49d7-842c-3b06379bd5c0" config-ref="HTTP_Listener_config" path="/postExportStatus/{loanId}"/>
+		<blend:post-export-status doc:name="Post export status" doc:id="eb899e98-e52a-4ef9-8d17-d608461b09b9" config-ref="Blend_Config" loanId="#[attributes.uriParams.loanId]"/>
+		<ee:transform doc:name="Transform Message" doc:id="4f2d9e8c-f0f0-4ecd-84ca-f66446634557" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

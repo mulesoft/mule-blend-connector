@@ -1,0 +1,185 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "PatchBorrowerInputSchema",
+  "required": [
+    "name",
+    "email",
+    "SSN",
+    "dateOfBirth",
+    "homePhone",
+    "currentAddress"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "object",
+      "title": "The Name Schema",
+      "required": [
+        "firstName",
+        "middleName",
+        "lastName",
+        "suffixName"
+      ],
+      "properties": {
+        "firstName": {
+          "$id": "#/properties/name/properties/firstName",
+          "type": "string",
+          "title": "The Firstname Schema",
+          "default": "",
+          "examples": [
+            "John"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "middleName": {
+          "$id": "#/properties/name/properties/middleName",
+          "type": "string",
+          "title": "The Middlename Schema",
+          "default": "",
+          "examples": [
+            "M"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "lastName": {
+          "$id": "#/properties/name/properties/lastName",
+          "type": "string",
+          "title": "The Lastname Schema",
+          "default": "",
+          "examples": [
+            "Doe"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "suffixName": {
+          "$id": "#/properties/name/properties/suffixName",
+          "type": "string",
+          "title": "The Suffixname Schema",
+          "default": "",
+          "examples": [
+            "III"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "email": {
+      "$id": "#/properties/email",
+      "type": "string",
+      "title": "The Email Schema",
+      "default": "",
+      "examples": [
+        "johnhernandez@mail.com"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "SSN": {
+      "$id": "#/properties/SSN",
+      "type": "string",
+      "title": "The Ssn Schema",
+      "default": "",
+      "examples": [
+        "000113933"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "dateOfBirth": {
+      "$id": "#/properties/dateOfBirth",
+      "type": "string",
+      "title": "The Dateofbirth Schema",
+      "default": "",
+      "examples": [
+        "2018-10-03T20:07:27+00:00"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "homePhone": {
+      "$id": "#/properties/homePhone",
+      "type": "string",
+      "title": "The Homephone Schema",
+      "default": "",
+      "examples": [
+        "1112223333"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "currentAddress": {
+      "$id": "#/properties/currentAddress",
+      "type": "object",
+      "title": "The Currentaddress Schema",
+      "required": [
+        "streetAddressLine1",
+        "streetAddressLine2",
+        "city",
+        "state",
+        "zipCode",
+        "zipCodePlusFour"
+      ],
+      "properties": {
+        "streetAddressLine1": {
+          "$id": "#/properties/currentAddress/properties/streetAddressLine1",
+          "type": "string",
+          "title": "The Streetaddressline1 Schema",
+          "default": "",
+          "examples": [
+            "100 Main St"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "streetAddressLine2": {
+          "$id": "#/properties/currentAddress/properties/streetAddressLine2",
+          "type": "string",
+          "title": "The Streetaddressline2 Schema",
+          "default": "",
+          "examples": [
+            "Apt 10"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "city": {
+          "$id": "#/properties/currentAddress/properties/city",
+          "type": "string",
+          "title": "The City Schema",
+          "default": "",
+          "examples": [
+            "Chicago"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "state": {
+          "$id": "#/properties/currentAddress/properties/state",
+          "type": "string",
+          "title": "The State Schema",
+          "default": "",
+          "examples": [
+            "IL"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "zipCode": {
+          "$id": "#/properties/currentAddress/properties/zipCode",
+          "type": "string",
+          "title": "The Zipcode Schema",
+          "default": "",
+          "examples": [
+            "60007"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "zipCodePlusFour": {
+          "$id": "#/properties/currentAddress/properties/zipCodePlusFour",
+          "type": "string",
+          "title": "The Zipcodeplusfour Schema",
+          "default": "",
+          "examples": [
+            "1000"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}

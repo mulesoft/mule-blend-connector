@@ -1,0 +1,52 @@
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+	<configuration-properties file="connectionSettings.properties" />
+	
+	<blend:config name="Blendlabs_Config2"  address="${baseurl}">
+		<blend:connection  username="${username}" password="${password}"  blendSpecialInstanceId="${x-blend-special-instance-id}"  blendAPIVersion="2.1.0"/>
+	</blend:config>
+
+	<flow name="getLoansFlow"  >
+		<blend:get-loans config-ref="Blendlabs_Config2" limit="100"/>
+	</flow>
+
+	<flow name="getExportStatusFlow"  >
+		<blend:get-export-status config-ref="Blendlabs_Config2" loanIds="964ff961-8ff8-4c43-8b56-f67672e561d8"/>
+	</flow>
+
+	<flow name="getDocumentsFlow"  >
+		<blend:get-documents config-ref="Blendlabs_Config2" limit="100"/>
+	</flow>
+
+	<flow name="getDocumentDataFlowFlow" >
+		<blend:get-document-data config-ref="Blendlabs_Config2" documentID="028976fd-c81e-4cd6-928b-6b6f079387d8"/>
+	</flow>
+
+	<flow name="getLoanDataFlow"  >
+		<blend:get-loan-data config-ref="Blendlabs_Config2" loanId="3d42f5ec-5a11-41fc-888d-14bbc9a098cc"/>
+	</flow>
+
+	<flow name="getLoanDocumentsFlow"  >
+		<blend:get-loan-documents config-ref="Blendlabs_Config2" loanId="3d42f5ec-5a11-41fc-888d-14bbc9a098cc"/>
+	</flow>
+
+	<flow name="getLoanApplicationDetailsFlow" >
+		<blend:get-loan-application-details config-ref="Blendlabs_Config2" loanId="3d42f5ec-5a11-41fc-888d-14bbc9a098cc"/>
+	</flow>
+
+	<flow name="blendFlow"  >
+		<blend:get-disclosures-packages config-ref="Blendlabs_Config2" loanId="3d42f5ec-5a11-41fc-888d-14bbc9a098cc"/>
+	</flow>
+	
+    <flow name="GetLoanBorrowerFlow">
+		<blend:get-loan-borrowers config-ref="Blendlabs_Config2" loanId="964ff961-8ff8-4c43-8b56-f67672e561d8"/>
+	</flow>
+
+	<error-handler name="ConnectorError_Handler" doc:id="6ef2ed33-19b2-4918-8116-970a5cf5012f" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="a8e0a181-c825-48e4-a67e-7cfa9e1479bf">
+			<set-payload value='"ERROR"' doc:name="Set Payload" doc:id="88301697-8c26-44df-b16a-145be17e6657" />
+		</on-error-continue>
+	</error-handler>
+</mule>

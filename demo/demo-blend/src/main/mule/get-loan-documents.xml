@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="getLoanDocuments" doc:id="06ee4f43-0e10-4df1-a23c-193fe122ee96" >
+		<http:listener doc:name="8081/getLoanDocuments/:loanId" doc:id="53150a62-f173-44c2-bc4e-e779d07b2749" config-ref="HTTP_Listener_config" path="/getLoanDocuments/{loanId}"/>
+		<blend:get-loan-documents doc:name="Get loan documents" doc:id="132e5aa5-c3b5-4d70-a082-116560391a82" config-ref="Blend_Config" loanId="#[attributes.uriParams.loanId]"/>
+		<ee:transform doc:name="Transform Message" doc:id="3876b5b6-b938-495f-a53e-1cf176e3587e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,59 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "GetLoanApplicationDetailsSchema",
+  "required": [
+    "_id",
+    "loanId",
+    "borrowerPairs"
+  ],
+  "properties": {
+    "_id": {
+      "$id": "#/properties/_id",
+      "type": "string",
+      "title": "The _id Schema",
+      "default": "",
+      "examples": [
+        "8999b3c8-cf41-4767-b9d8-747d21608e7c"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "loanId": {
+      "$id": "#/properties/loanId",
+      "type": "string",
+      "title": "The Loanid Schema",
+      "default": "",
+      "examples": [
+        "964ff961-8ff8-4c43-8b56-f67672e561d8"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "borrowerPairs": {
+      "$id": "#/properties/borrowerPairs",
+      "type": "array",
+      "title": "The Borrowerpairs Schema",
+      "items": {
+        "$id": "#/properties/borrowerPairs/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "primaryBorrowerId"
+        ],
+        "properties": {
+          "primaryBorrowerId": {
+            "$id": "#/properties/borrowerPairs/items/properties/primaryBorrowerId",
+            "type": "string",
+            "title": "The Primaryborrowerid Schema",
+            "default": "",
+            "examples": [
+              "a5b08942-6ebd-4514-9600-733497ee1f9b"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}
