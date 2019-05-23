@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.concurrent.CompletableFuture;
 
 import static com.mulesoft.connectors.blend.internal.attributes.AttributesUtil.setResponseAttributes;
-import static com.mulesoft.connectors.blend.internal.exception.ResponseValidator.checkErrorResponse;
+import static com.mulesoft.connectors.blend.internal.error.exception.ResponseValidator.checkErrorResponse;
 import static com.mulesoft.connectors.blend.internal.util.BlendUtils.getByteArrayFromInputStream;
 
 

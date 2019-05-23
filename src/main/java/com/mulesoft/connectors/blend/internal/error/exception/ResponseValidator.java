@@ -1,5 +1,5 @@
 
-package com.mulesoft.connectors.blend.internal.exception;
+package com.mulesoft.connectors.blend.internal.error.exception;
 
 
 import com.mulesoft.connectors.blend.internal.error.ErrorTypes;
