@@ -7,7 +7,7 @@ Add below dependency to demo-blend pom.xml:
 <dependency>
     <groupId>com.mulesoft.connectors</groupId>
     <artifactId>mule-blend-connector</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNPSHOT</version>
     <classifier>mule-plugin</classifier>
 </dependency>
 ```
@@ -16,5 +16,9 @@ Add below dependency to demo-blend pom.xml:
 3. Open one of the mule configuration files and run the project.
 4. Once the project gets deployed successfully, hit the endpoints mentioned in listener path from any rest client. 
 5. For all the localhost endpoints and valid payload values please import the "blend-demo-postman_collection.json" file in postman client.
+6. Note that below listed services do not return any value.Instead they return a {} response and a success code 200.
+ 
+        i) Update Loan Properties
+    
 
 Note: For TLS configurations you should have keystore.jks in src/main/resources directory, already packaged with the demo

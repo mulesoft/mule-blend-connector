@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import static com.mulesoft.connectors.blend.internal.attributes.AttributesUtil.setResponseAttributes;
-import static com.mulesoft.connectors.blend.internal.exception.ResponseValidator.checkErrorResponse;
+import static com.mulesoft.connectors.blend.internal.error.exception.ResponseValidator.checkErrorResponse;
 
 public class BorrowerServiceImpl extends DefaultConnectorService<BlendlabsConfiguration, BlendlabsConnection> implements BorrowerService{
 
