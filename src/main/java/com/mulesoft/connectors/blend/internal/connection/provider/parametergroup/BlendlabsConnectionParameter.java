@@ -38,7 +38,7 @@ public class BlendlabsConnectionParameter {
 	private boolean usePersistentConnectionsBlend;
 
 	/**
-	 * The maximum number of outbound connections that will be kept open at the same time. By default the number of connections is
+	 * The maximum number of outbound connection that will be kept open at the same time. By default the number of connection is
 	 * unlimited.
 	 */
 	@Parameter
@@ -49,7 +49,7 @@ public class BlendlabsConnectionParameter {
 
 	/**
 	 * The number of milliseconds that a connection can remain idle before it is closed. The value of this attribute is only used
-	 * when persistent connections are enabled.
+	 * when persistent connection are enabled.
 	 */
 	@Parameter
 	@Optional(defaultValue = "60000")
