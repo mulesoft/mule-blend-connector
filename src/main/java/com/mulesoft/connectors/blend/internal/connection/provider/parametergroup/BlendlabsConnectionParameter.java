@@ -26,7 +26,7 @@ public class BlendlabsConnectionParameter {
 	@Parameter
 	@Optional
 	@DisplayName("TLS Configuration")
-	private TlsContextFactory tlsContextFactory;
+	private TlsContextFactory tlsContext;
 
 	/**
 	 * If false, each connection will be closed after the first request is completed.
@@ -104,8 +104,8 @@ public class BlendlabsConnectionParameter {
 	private String blendSpecialInstanceId;
 
 
-	public TlsContextFactory getTlsContextFactory() {
-		return tlsContextFactory;
+	public TlsContextFactory getTlsContext() {
+		return tlsContext;
 	}
 
 	public boolean getUsePersistentConnectionsBlend() {

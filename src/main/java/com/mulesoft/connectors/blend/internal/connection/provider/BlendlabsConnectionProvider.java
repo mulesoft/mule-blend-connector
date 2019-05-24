@@ -6,30 +6,33 @@ package com.mulesoft.connectors.blend.internal.connection.provider;
 import com.mulesoft.connectors.blend.internal.auth.CreateAuthentication;
 import com.mulesoft.connectors.blend.internal.connection.BlendlabsConnection;
 import com.mulesoft.connectors.blend.internal.connection.provider.parametergroup.BlendlabsConnectionParameter;
+import com.mulesoft.connectors.blend.internal.error.exception.BlendlabsConnectorException;
+import com.mulesoft.connectors.blend.internal.util.Urls;
 import org.mule.connectors.commons.template.connection.ConnectorConnectionProvider;
-import org.mule.runtime.api.connection.ConnectionException;
-import org.mule.runtime.extension.api.annotation.Expression;
-import org.mule.runtime.extension.api.annotation.param.Optional;
+import org.mule.runtime.api.connection.*;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 import org.mule.runtime.extension.api.annotation.param.ParameterGroup;
-import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
-import org.mule.runtime.api.connection.ConnectionValidationResult;
-import org.mule.runtime.api.connection.PoolingConnectionProvider;
-import org.mule.runtime.api.connection.ConnectionProvider;
-import org.mule.runtime.api.connection.CachedConnectionProvider;
 import org.mule.runtime.extension.api.annotation.param.display.Placement;
+import org.mule.runtime.http.api.HttpConstants;
 import org.mule.runtime.http.api.HttpService;
 import org.mule.runtime.http.api.client.HttpClient;
 import org.mule.runtime.http.api.client.HttpClientConfiguration;
 import org.mule.runtime.http.api.client.auth.HttpAuthentication;
+import org.mule.runtime.http.api.domain.message.request.HttpRequest;
+import org.mule.runtime.http.api.domain.message.response.HttpResponse;
 import org.mule.runtime.http.api.tcp.TcpClientSocketProperties;
+import static com.mulesoft.connectors.blend.internal.config.BlendlabsConfiguration.getAddressValue;
+import static com.mulesoft.connectors.blend.internal.error.ErrorTypes.getError;
+import static com.mulesoft.connectors.blend.internal.util.RequestService.sendAsyncRequest;
+import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CONNECTION;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 
-import static org.mule.runtime.api.meta.ExpressionSupport.NOT_SUPPORTED;
-import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CONNECTION;
+import java.util.concurrent.CompletableFuture;
+
 
 /**
  * This class (as it's name implies) provides connection instances and the funcionality to disconnect and validate those
@@ -65,7 +68,7 @@ public class BlendlabsConnectionProvider extends ConnectorConnectionProvider<Ble
         authGen = CreateAuthentication.createAuth(username, password);
 
         HttpClient httpClient = httpService.getClientFactory().create(new HttpClientConfiguration.Builder()
-                .setTlsContextFactory(connectionParams.getTlsContextFactory())
+                .setTlsContextFactory(connectionParams.getTlsContext())
                 .setClientSocketProperties(TcpClientSocketProperties.builder()
                         .connectionTimeout(connectionParams.getConnectionTimeoutBlend())
                         .build())
@@ -86,13 +89,32 @@ public class BlendlabsConnectionProvider extends ConnectorConnectionProvider<Ble
         try {
             connection.invalidate();
         } catch (Exception e) {
-            logger.info("Error while disconnecting : ", e);
+            logger.info("Error while disconnecting :", e);
         }
     }
 
     @Override
     public ConnectionValidationResult validate(BlendlabsConnection connection) {
-        return ConnectionValidationResult.success();
-    }
+        String address = getAddressValue();
+        String actualUrl = new StringBuilder(address).toString();
+        HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(actualUrl).build();
+        CompletableFuture<HttpResponse> response = sendAsyncRequest(request, true, connection);
+          try {
+              if (response.get().getStatusCode() != 200) {
+                  String str = response.get().getStatusCode() + "";
+                  return ConnectionValidationResult.failure(str, new BlendlabsConnectorException(response.get().getReasonPhrase(),getError(response.get().getStatusCode()))); }
+             } catch (Exception e) {
+              logger.info("Error while validating the connection : " + e);
+          }
+          return ConnectionValidationResult.success();
+         }
+
+         public String getUsername() {
+          return username;
+         }
+
+         public String getPassword() {
+             return password;
+        }
 
 }

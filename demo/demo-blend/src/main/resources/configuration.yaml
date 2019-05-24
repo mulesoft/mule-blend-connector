@@ -9,4 +9,12 @@ sfdc:
   uname: ""
   pass: ""
   token: ""
+  
+tls:
+  type: ""
+  path: ""
+  alias: ""
+  keyPassword: ""
+  password: ""
+  
  
