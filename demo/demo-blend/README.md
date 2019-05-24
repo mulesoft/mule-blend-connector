@@ -20,6 +20,7 @@ Add below dependency to demo-blend pom.xml:
  
         i) Update Loan Properties
        ii) Delete a Borrower
+	  iii) Update Loan Borrowers Location
     
 
 Note: For TLS configurations you should have keystore.jks in src/main/resources directory, already packaged with the demo
