@@ -9,17 +9,22 @@ import org.mule.connectors.commons.template.config.ConnectorConfig;
 import org.mule.runtime.extension.api.annotation.Operations;
 import org.mule.runtime.extension.api.annotation.connectivity.ConnectionProviders;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
-
-@Operations({RealtorOperations.class, LoanOperations.class, BorrowerOperations.class,
-        DisclosurePackageOperations.class, DocumentOperations.class})
+/**
+ * This class represents an extension configuration, values set in this class are commonly used across multiple
+ * operations since they represent something core from the extension.
+ */
+@Operations({RealtorOperations.class, LoanOperations.class, BorrowerOperations.class, DisclosurePackageOperations.class, DocumentOperations.class})
 @ConnectionProviders(BlendlabsConnectionProvider.class)
 public class BlendlabsConfiguration implements ConnectorConfig {
 
-
     @Parameter
-    protected String address;
+    protected static String address;
 
     public String getAddress() {
+        return address;
+    }
+
+    public static String getAddressValue(){
         return address;
     }
 

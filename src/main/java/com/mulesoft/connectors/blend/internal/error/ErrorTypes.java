@@ -52,4 +52,8 @@ public enum ErrorTypes implements ErrorTypeDefinition<ErrorTypes> {
         return map.get(status);
     }
 
+    public static ErrorTypes getError(Integer status) {
+        return ErrorTypes.valueOf(status);
+    }
+
 }
