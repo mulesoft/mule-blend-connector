@@ -1,18 +1,23 @@
-<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
-	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	  xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	  xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
-http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+<tls:context >
+		<tls:key-store type="${keytype}" path="${keypath}" alias="${alias}" keyPassword="${keypassword1}" password="${keypassword}" />
+	</tls:context>
+
 	<configuration-properties doc:name="Configuration properties" doc:id="d8d06e7e-7d11-49af-926f-5be4b9e22d90" file="connectionSettings.properties" />
 	
 	<blend:config name="Blendlabs_Config2" address="${baseurl}">
 		<blend:connection  username="${username}" password="${password}"  blendSpecialInstanceId="${x-blend-special-instance-id}" blendAPIVersion="2.1.0"/>
 	</blend:config>
 	
-	<!--<flow name="incubation-blendlabs-connectorFlow24" >-->
-		<!--<blend:post-disclosures-package  config-ref="Blendlabs_Config2" />-->
-	<!--<error-handler ref="ConnectorError_Handler"/>-->
-	<!--</flow>-->
-	
+
 	<flow name="incubation-blendlabs-connectorFlow27" >
 		<blend:patch-loan config-ref="Blendlabs_Config2" loanId="#[vars.loanId]"/>
 	<error-handler ref="ConnectorError_Handler"/>
@@ -22,18 +27,6 @@ http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mu
 		<blend:patch-borrower config-ref="Blendlabs_Config2" borrowerId="f543e5f4-88c0-405d-b79b-bf529d095cf5"/>
 	<error-handler ref="ConnectorError_Handler"/>
 	</flow>
-	
-	<!--<flow name="incubation-blendlabs-connectorFlow29" doc:id="ec543020-d6db-437d-b2e6-4e51d6ca1033" >
-		<blend:patch-disclosures-package doc:name="Patch Disclosures Package" doc:id="4e3039c2-a960-4ab8-b7d8-d472f7ee2a1b" config-ref="Blendlabs_Config2" disclosuresPackageId="#[vars.disclosuresPackagesId]"/>
-	<error-handler ref="ConnectorError_Handler"/>
-	</flow>-->
-	
-<!--
-	<flow name="incubation-blendlabs-connectorFlow30" doc:id="138c1b74-ff06-4519-9510-bdce635cf8e7" >
-		<blend:set-event-status doc:name="Set Event Status" doc:id="2fc039f8-ad24-4df2-b84b-c53fedff8d30" config-ref="Blendlabs_Config2" eventId="#[vars.event_uuid]" setEventStatusBody="#[payload]"/>
-	<error-handler ref="ConnectorError_Handler"/>
-	</flow>
--->
 
 	<error-handler name="ConnectorError_Handler" doc:id="6ef2ed33-19b2-4918-8116-970a5cf5012f" >
 		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="a8e0a181-c825-48e4-a67e-7cfa9e1479bf">
