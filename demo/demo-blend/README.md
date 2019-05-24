@@ -19,6 +19,7 @@ Add below dependency to demo-blend pom.xml:
 6. Note that below listed services do not return any value.Instead they return a {} response and a success code 200.
  
         i) Update Loan Properties
+		ii) Delete a Borrower
     
 
 Note: For TLS configurations you should have keystore.jks in src/main/resources directory, already packaged with the demo
