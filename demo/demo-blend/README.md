@@ -18,9 +18,9 @@ Add below dependency to demo-blend pom.xml:
 5. For all the localhost endpoints and valid payload values please import the "blend-demo-postman_collection.json" file in postman client.
 6. Note that below listed services do not return any payload. Instead they return a {} response and a success code 200.
 
-        i) Update Loan Properties
-	   ii) Delete a Borrower
-	  iii) Update Loan Borrowers Location
-
+         i) Update Loan Properties
+        ii) Delete a Borrower
+       iii) Update Loan Borrowers Location    
+7. To run the business use case successfully, first run /deleteAllSF endpoint and then others so that salesforce system is cleaned up before posting contact with same details.
 
 Note: For TLS configurations you should have keystore.jks in src/main/resources directory, already packaged with the demo
