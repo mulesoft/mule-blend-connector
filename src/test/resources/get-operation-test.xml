@@ -1,7 +1,17 @@
-<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
-	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	  xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	  xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
-http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+<tls:context >
+		<tls:key-store type="${keytype}" path="${keypath}" alias="${alias}" keyPassword="${keypassword1}" password="${keypassword}" />
+	</tls:context>
+
+
 	<configuration-properties file="connectionSettings.properties" />
 	
 	<blend:config name="Blendlabs_Config2"  address="${baseurl}">
