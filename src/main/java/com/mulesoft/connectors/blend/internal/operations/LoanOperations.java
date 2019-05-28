@@ -195,7 +195,7 @@ public class LoanOperations extends ConnectorOperations<BlendlabsConfiguration, 
      */
 
 
-    @DisplayName("Post loan")
+    @DisplayName("Create a Loan")
     @Throws(BlendlabsErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/loan-response-schema.json")
