@@ -7,7 +7,7 @@ Add below dependency to demo-blend pom.xml:
 <dependency>
     <groupId>com.mulesoft.connectors</groupId>
     <artifactId>mule-blend-connector</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <classifier>mule-plugin</classifier>
 </dependency>
 ```
