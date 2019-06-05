@@ -11,10 +11,7 @@ http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/bl
 		<blend:post-realtor doc:name="Post realtor" doc:id="6b3cf3d7-118e-41ac-8498-acb5ddc02e51" config-ref="Blend_Config"/>
 		<ee:transform doc:name="Transform Message" doc:id="a6ec0147-c341-48b3-ac00-5c328de85583" >
 			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
-output application/json
----
-payload]]></ee:set-payload>
+				<ee:set-payload ><![CDATA[payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
