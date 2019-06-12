@@ -1,0 +1,156 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "success"
+  ],
+  "properties": {
+    "success": {
+      "$id": "#/properties/success",
+      "type": "array",
+      "title": "The Success Schema",
+      "items": {
+        "$id": "#/properties/success/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "id",
+          "type",
+          "name",
+          "email",
+          "econsent"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/properties/success/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema",
+            "default": "",
+            "examples": [
+              "3f345acb-6ac4-4bd0-b04a-dc0b9ad76e70"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "type": {
+            "$id": "#/properties/success/items/properties/type",
+            "type": "string",
+            "title": "The Type Schema",
+            "default": "",
+            "examples": [
+              "BORROWER"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "name": {
+            "$id": "#/properties/success/items/properties/name",
+            "type": "object",
+            "title": "The Name Schema",
+            "required": [
+              "firstName",
+              "middleName",
+              "lastName",
+              "suffixName"
+            ],
+            "properties": {
+              "firstName": {
+                "$id": "#/properties/success/items/properties/name/properties/firstName",
+                "type": "string",
+                "title": "The Firstname Schema",
+                "default": "",
+                "examples": [
+                  "John"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "middleName": {
+                "$id": "#/properties/success/items/properties/name/properties/middleName",
+                "type": "string",
+                "title": "The Middlename Schema",
+                "default": "",
+                "examples": [
+                  "M"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "lastName": {
+                "$id": "#/properties/success/items/properties/name/properties/lastName",
+                "type": "string",
+                "title": "The Lastname Schema",
+                "default": "",
+                "examples": [
+                  "Doe"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "suffixName": {
+                "$id": "#/properties/success/items/properties/name/properties/suffixName",
+                "type": "string",
+                "title": "The Suffixname Schema",
+                "default": "",
+                "examples": [
+                  "III"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "email": {
+            "$id": "#/properties/success/items/properties/email",
+            "type": "string",
+            "title": "The Email Schema",
+            "default": "",
+            "examples": [
+              "borrower@email.com"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "econsent": {
+            "$id": "#/properties/success/items/properties/econsent",
+            "type": "object",
+            "title": "The Econsent Schema",
+            "required": [
+              "status",
+              "date",
+              "ip"
+            ],
+            "properties": {
+              "status": {
+                "$id": "#/properties/success/items/properties/econsent/properties/status",
+                "type": "string",
+                "title": "The Status Schema",
+                "default": "",
+                "examples": [
+                  "Pending"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "date": {
+                "$id": "#/properties/success/items/properties/econsent/properties/date",
+                "type": "string",
+                "title": "The Date Schema",
+                "default": "",
+                "examples": [
+                  "2018-08-30T19:31:38.902Z"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "ip": {
+                "$id": "#/properties/success/items/properties/econsent/properties/ip",
+                "type": "string",
+                "title": "The Ip Schema",
+                "default": "",
+                "examples": [
+                  "8.8.8.8"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

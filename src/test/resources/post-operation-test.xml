@@ -1,0 +1,45 @@
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	  xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	  xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+<tls:context >
+		<tls:key-store type="${keytype}" path="${keypath}" alias="${alias}" keyPassword="${keypassword1}" password="${keypassword}" />
+	</tls:context>
+
+
+	<configuration-properties doc:name="Configuration properties" file="connectionSettings.properties" />
+	
+	<blend:config name="Blend_Config" address="${baseurl}">
+		<blend:connection  username="${username}" password="${password}"  blendSpecialInstanceId="${x-blend-special-instance-id}"  blendAPIVersion="2.1.0"/>
+	</blend:config>
+
+
+	<flow name="postLoanFlow" >
+	<blend:post-loan config-ref="Blend_Config"/>
+	</flow>
+
+	<flow name="postLosMilestonesFlow"  >
+		<blend:post-los-milestones config-ref="Blend_Config"/>
+	</flow>
+
+	<flow name="postExportStatusFlow"  >
+		<blend:post-export-status config-ref="Blend_Config" loanId="3d42f5ec-5a11-41fc-888d-14bbc9a098cc" />
+	</flow>
+
+	<flow name="postBorrowerFlow" >
+		<blend:post-borrower  config-ref="Blend_Config"/>
+	</flow>
+
+	<flow name="postRealtorFlowFlow"  >
+		<blend:post-realtor config-ref="Blend_Config"/>
+	</flow>
+	<flow name="PostDocumentFlow" >
+		<blend:post-document config-ref="Blend_Config" />
+	</flow>
+
+</mule>

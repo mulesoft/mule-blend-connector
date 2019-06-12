@@ -1,0 +1,95 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "success",
+    "error"
+  ],
+  "properties": {
+    "success": {
+      "$id": "#/properties/success",
+      "type": "array",
+      "title": "The Success Schema",
+      "items": {
+        "$id": "#/properties/success/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "losMilestone",
+          "loanId"
+        ],
+        "properties": {
+          "losMilestone": {
+            "$id": "#/properties/success/items/properties/losMilestone",
+            "type": "string",
+            "title": "The Losmilestone Schema",
+            "default": "",
+            "examples": [
+              "SUBMITTED"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "loanId": {
+            "$id": "#/properties/success/items/properties/loanId",
+            "type": "string",
+            "title": "The Loanid Schema",
+            "default": "",
+            "examples": [
+              "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "error": {
+      "$id": "#/properties/error",
+      "type": "array",
+      "title": "The Error Schema",
+      "items": {
+        "$id": "#/properties/error/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "loanId",
+          "code",
+          "reason"
+        ],
+        "properties": {
+          "loanId": {
+            "$id": "#/properties/error/items/properties/loanId",
+            "type": "string",
+            "title": "The Loanid Schema",
+            "default": "",
+            "examples": [
+              "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "code": {
+            "$id": "#/properties/error/items/properties/code",
+            "type": "integer",
+            "title": "The Code Schema",
+            "default": 0,
+            "examples": [
+              404
+            ]
+          },
+          "reason": {
+            "$id": "#/properties/error/items/properties/reason",
+            "type": "string",
+            "title": "The Reason Schema",
+            "default": "",
+            "examples": [
+              "loan does not exist"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    }
+  }
+}

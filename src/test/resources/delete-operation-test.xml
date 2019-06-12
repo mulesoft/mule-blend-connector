@@ -1,0 +1,38 @@
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	  xmlns:blend="http://www.mulesoft.org/schema/mule/blend"
+	  xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	  xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+
+<tls:context >
+		<tls:key-store type="${keytype}" path="${keypath}" alias="${alias}" keyPassword="${keypassword1}" password="${keypassword}" />
+	</tls:context>
+
+	<configuration-properties file="connectionSettings.properties" />
+
+	<blend:config name="Blend_Config"  address="${baseurl}">
+		<blend:connection  username="${username}" password="${password}"  blendSpecialInstanceId="${x-blend-special-instance-id}"  blendAPIVersion="2.1.0"/>
+	</blend:config>
+
+	<flow name="deleteBorrowerFlow"  >
+		<blend:delete-borrower config-ref="Blend_Config" borrowerId="#[vars.borrowerId]"/>
+	</flow>
+
+	<flow name="postLoanDeleteFlow" >
+		<blend:post-loan config-ref="Blend_Config"/>
+	</flow>
+
+
+	<flow name="postBorrowerDeleteFlow" >
+		<blend:post-borrower  config-ref="Blend_Config"/>
+	</flow>
+
+<error-handler name="ConnectorError_Handler" doc:id="6ef2ed33-19b2-4918-8116-970a5cf5012f" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="a8e0a181-c825-48e4-a67e-7cfa9e1479bf">
+			<set-payload value='"ERROR"' doc:name="Set Payload" doc:id="88301697-8c26-44df-b16a-145be17e6657" />
+		</on-error-continue>
+	</error-handler>
+</mule>

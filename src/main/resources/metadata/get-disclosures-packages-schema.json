@@ -1,0 +1,220 @@
+{
+  "$id": "https://example.com/geographical-location.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "GetDisclosuresPackages",
+  "required": [
+    "disclosuresPackages"
+  ],
+  "properties": {
+    "disclosuresPackages": {
+      "$id": "#/properties/disclosuresPackages",
+      "type": "array",
+      "title": "The Disclosurespackages Schema",
+      "items": {
+        "$id": "#/properties/disclosuresPackages/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "id",
+          "losId",
+          "requestedBy",
+          "type",
+          "status",
+          "displayStatus",
+          "sentDate",
+          "recipients",
+          "documents"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/properties/disclosuresPackages/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema",
+            "default": "",
+            "examples": [
+              "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "losId": {
+            "$id": "#/properties/disclosuresPackages/items/properties/losId",
+            "type": "string",
+            "title": "The Losid Schema",
+            "default": "",
+            "examples": [
+              "12345"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "requestedBy": {
+            "$id": "#/properties/disclosuresPackages/items/properties/requestedBy",
+            "type": "string",
+            "title": "The Requestedby Schema",
+            "default": "",
+            "examples": [
+              "string"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "type": {
+            "$id": "#/properties/disclosuresPackages/items/properties/type",
+            "type": "string",
+            "title": "The Type Schema",
+            "default": "",
+            "examples": [
+              "string"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "status": {
+            "$id": "#/properties/disclosuresPackages/items/properties/status",
+            "type": "string",
+            "title": "The Status Schema",
+            "default": "",
+            "examples": [
+              "PENDING_ECONSENT"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "displayStatus": {
+            "$id": "#/properties/disclosuresPackages/items/properties/displayStatus",
+            "type": "string",
+            "title": "The Displaystatus Schema",
+            "default": "",
+            "examples": [
+              "Pending Econsent"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "sentDate": {
+            "$id": "#/properties/disclosuresPackages/items/properties/sentDate",
+            "type": "string",
+            "title": "The Sentdate Schema",
+            "default": "",
+            "examples": [
+              "2018-10-03T20:07:27+00:00"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "recipients": {
+            "$id": "#/properties/disclosuresPackages/items/properties/recipients",
+            "type": "array",
+            "title": "The Recipients Schema",
+            "items": {
+              "$id": "#/properties/disclosuresPackages/items/properties/recipients/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "id",
+                "receivedDate",
+                "receivedIP",
+                "signedDate",
+                "signedIP",
+                "declinedToSignDate",
+                "declinedToSignIP",
+                "wetsignComplete"
+              ],
+              "properties": {
+                "id": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/id",
+                  "type": "string",
+                  "title": "The Id Schema",
+                  "default": "",
+                  "examples": [
+                    "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "receivedDate": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/receivedDate",
+                  "type": "string",
+                  "title": "The Receiveddate Schema",
+                  "default": "",
+                  "examples": [
+                    "2018-10-03T20:07:27+00:00"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "receivedIP": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/receivedIP",
+                  "type": "string",
+                  "title": "The Receivedip Schema",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "signedDate": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/signedDate",
+                  "type": "string",
+                  "title": "The Signeddate Schema",
+                  "default": "",
+                  "examples": [
+                    "2018-10-03T20:07:27+00:00"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "signedIP": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/signedIP",
+                  "type": "string",
+                  "title": "The Signedip Schema",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "declinedToSignDate": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/declinedToSignDate",
+                  "type": "string",
+                  "title": "The Declinedtosigndate Schema",
+                  "default": "",
+                  "examples": [
+                    "2018-10-03T20:07:27+00:00"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "declinedToSignIP": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/declinedToSignIP",
+                  "type": "string",
+                  "title": "The Declinedtosignip Schema",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "wetsignComplete": {
+                  "$id": "#/properties/disclosuresPackages/items/properties/recipients/items/properties/wetsignComplete",
+                  "type": "boolean",
+                  "title": "The Wetsigncomplete Schema",
+                  "default": false,
+                  "examples": [
+                    true
+                  ]
+                }
+              }
+            }
+          },
+          "documents": {
+            "$id": "#/properties/disclosuresPackages/items/properties/documents",
+            "type": "array",
+            "title": "The Documents Schema",
+            "items": {
+              "$id": "#/properties/disclosuresPackages/items/properties/documents/items",
+              "type": "string",
+              "title": "The Items Schema",
+              "default": "",
+              "examples": [
+                "c6dabfb0-8753-4a89-b8f0-af059ef869f7"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

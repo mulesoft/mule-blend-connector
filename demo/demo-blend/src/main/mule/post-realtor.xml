@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="postRealtor" doc:id="8e97e1b2-c666-4c29-9db1-71d341a72098" >
+		<http:listener doc:name="8081/postRealtor" doc:id="f3750d7e-eaeb-432e-a5f8-cb3bcdc652e6" config-ref="HTTP_Listener_config" path="/postRealtor"/>
+		<blend:post-realtor doc:name="Post realtor" doc:id="6b3cf3d7-118e-41ac-8498-acb5ddc02e51" config-ref="Blend_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="a6ec0147-c341-48b3-ac00-5c328de85583" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

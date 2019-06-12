@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:blend="http://www.mulesoft.org/schema/mule/blend" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/blend http://www.mulesoft.org/schema/mule/blend/current/mule-blend.xsd">
+	<flow name="postLosMilestones" doc:id="e2aaa911-d9ef-46e4-996c-aa9811b12bb6" >
+		<http:listener doc:name="8081/postLosMilestones" doc:id="2edec9b8-574e-4d6d-84b5-22b23335c328" config-ref="HTTP_Listener_config" path="/postLosMilestones"/>
+		<blend:post-los-milestones doc:name="Post los milestones" doc:id="f6126876-2f0b-4c8b-94dc-d0e5d343bbff" config-ref="Blend_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="a41d4278-5713-4c14-a22b-cbf3f9873f1c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

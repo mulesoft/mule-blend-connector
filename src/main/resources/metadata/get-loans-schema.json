@@ -1,0 +1,279 @@
+{
+  "$id": "https://example.com/geographical-location.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "GetLoansObject",
+  "required": [
+    "loans",
+    "nextCursor",
+    "prevCursor"
+  ],
+  "properties": {
+    "loans": {
+      "$id": "#/properties/loans",
+      "type": "array",
+      "title": "The Loans Schema",
+      "items": {
+        "$id": "#/properties/loans/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "id",
+          "referenceNumber",
+          "losId",
+          "crmId",
+          "status",
+          "borrowers",
+          "propertyAddress",
+          "loanOriginator",
+          "leadId"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/properties/loans/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema",
+            "default": "",
+            "examples": [
+              "3f345acb-6ac4-4bd0-b04a-dc0b9ad76e70"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "referenceNumber": {
+            "$id": "#/properties/loans/items/properties/referenceNumber",
+            "type": "integer",
+            "title": "The Referencenumber Schema",
+            "default": 0,
+            "examples": [
+              124123
+            ]
+          },
+          "losId": {
+            "$id": "#/properties/loans/items/properties/losId",
+            "type": "string",
+            "title": "The Losid Schema",
+            "default": "",
+            "examples": [
+              "Loan-12391"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "crmId": {
+            "$id": "#/properties/loans/items/properties/crmId",
+            "type": "string",
+            "title": "The Crmid Schema",
+            "default": "",
+            "examples": [
+              "1923"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "status": {
+            "$id": "#/properties/loans/items/properties/status",
+            "type": "string",
+            "title": "The Status Schema",
+            "default": "",
+            "examples": [
+              "Application Submitted"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "borrowers": {
+            "$id": "#/properties/loans/items/properties/borrowers",
+            "type": "array",
+            "title": "The Borrowers Schema",
+            "items": {
+              "$id": "#/properties/loans/items/properties/borrowers/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "id",
+                "loanId",
+                "type",
+                "email",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "$id": "#/properties/loans/items/properties/borrowers/items/properties/id",
+                  "type": "string",
+                  "title": "The Id Schema",
+                  "default": "",
+                  "examples": [
+                    "3f345acb-6ac4-4bd0-b04a-dc0b9ad76e70"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "loanId": {
+                  "$id": "#/properties/loans/items/properties/borrowers/items/properties/loanId",
+                  "type": "string",
+                  "title": "The Loanid Schema",
+                  "default": "",
+                  "examples": [
+                    "cfca8227-59dc-4bde-891e-55145be2837f"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "type": {
+                  "$id": "#/properties/loans/items/properties/borrowers/items/properties/type",
+                  "type": "string",
+                  "title": "The Type Schema",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "email": {
+                  "$id": "#/properties/loans/items/properties/borrowers/items/properties/email",
+                  "type": "string",
+                  "title": "The Email Schema",
+                  "default": "",
+                  "examples": [
+                    "johnhernandez@mail.com"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "name": {
+                  "$id": "#/properties/loans/items/properties/borrowers/items/properties/name",
+                  "type": "string",
+                  "title": "The Name Schema",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          },
+          "propertyAddress": {
+            "$id": "#/properties/loans/items/properties/propertyAddress",
+            "type": "object",
+            "title": "The Propertyaddress Schema",
+            "required": [
+              "streetAddressLine1",
+              "streetAddressLine2",
+              "city",
+              "state",
+              "zipCode",
+              "zipCodePlusFour"
+            ],
+            "properties": {
+              "streetAddressLine1": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/streetAddressLine1",
+                "type": "string",
+                "title": "The Streetaddressline1 Schema",
+                "default": "",
+                "examples": [
+                  "100 Main St"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "streetAddressLine2": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/streetAddressLine2",
+                "type": "string",
+                "title": "The Streetaddressline2 Schema",
+                "default": "",
+                "examples": [
+                  "Apt 10"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "city": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/city",
+                "type": "string",
+                "title": "The City Schema",
+                "default": "",
+                "examples": [
+                  "Chicago"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "state": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/state",
+                "type": "string",
+                "title": "The State Schema",
+                "default": "",
+                "examples": [
+                  "IL"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "zipCode": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/zipCode",
+                "type": "string",
+                "title": "The Zipcode Schema",
+                "default": "",
+                "examples": [
+                  "60007"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "zipCodePlusFour": {
+                "$id": "#/properties/loans/items/properties/propertyAddress/properties/zipCodePlusFour",
+                "type": "string",
+                "title": "The Zipcodeplusfour Schema",
+                "default": "",
+                "examples": [
+                  "1000"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "loanOriginator": {
+            "$id": "#/properties/loans/items/properties/loanOriginator",
+            "type": "object",
+            "title": "The Loanoriginator Schema",
+            "required": [
+              "email"
+            ],
+            "properties": {
+              "email": {
+                "$id": "#/properties/loans/items/properties/loanOriginator/properties/email",
+                "type": "string",
+                "title": "The Email Schema",
+                "default": "",
+                "examples": [
+                  "lo@mortgage.com"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "leadId": {
+            "$id": "#/properties/loans/items/properties/leadId",
+            "type": "string",
+            "title": "The Leadid Schema",
+            "default": "",
+            "examples": [
+              "lead134912"
+            ],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "nextCursor": {
+      "$id": "#/properties/nextCursor",
+      "type": "string",
+      "title": "The Nextcursor Schema",
+      "default": "",
+      "examples": [
+        "biwxNTIzOTk4Njg1NTc5LGRkYWYwNDY5LTdlNTYtNDRjZS05MDE3LTZkM2VhNjk1Mzc2OA"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "prevCursor": {
+      "$id": "#/properties/prevCursor",
+      "type": "string",
+      "title": "The Prevcursor Schema",
+      "default": "",
+      "examples": [
+        "cCwxNTIzOTk4NTQ4MTU5LGEwYWNkZTZjLWY1M2MtNGM5NC1iYmM1LWE0M2MyYTY5YjM3Mg"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

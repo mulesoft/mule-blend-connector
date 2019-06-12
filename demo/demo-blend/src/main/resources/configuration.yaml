@@ -1,0 +1,20 @@
+blend:
+  baseurl: "/"
+  username: ""
+  password: ""
+  x-blend-special-instance-id: ""
+  x-blend-deployment: ""
+  
+sfdc: 
+  uname: ""
+  pass: ""
+  token: ""
+  
+tls:
+  type: ""
+  path: ""
+  alias: ""
+  keyPassword: ""
+  password: ""
+  
+ 
