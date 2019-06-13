@@ -49,9 +49,9 @@
         </dependency>
          </dependencies>
     <scm>
-        <connection>scm:git:git@github.com:integration-industries-salesforce/mule-blend-connector.git</connection>
-        <developerConnection>scm:git:git@github.com:integration-industries-salesforce/mule-blend-connector.git</developerConnection>
-        <url>https://github.com/integration-industries-salesforce/mule-blend-connector</url>
+        <connection>scm:git:git@github.com:mulesoft/mule-blend-connector.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule-blend-connector.git</developerConnection>
+        <url>https://github.com/mulesoft/mule-blend-connector</url>
 		<tag>mule-blend-connector-1.0.0</tag>
 	</scm>
 	<build>
