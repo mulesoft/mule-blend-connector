@@ -52,7 +52,7 @@
         <connection>scm:git:git@github.com:mulesoft/mule-blend-connector.git</connection>
         <developerConnection>scm:git:git@github.com:mulesoft/mule-blend-connector.git</developerConnection>
         <url>https://github.com/mulesoft/mule-blend-connector</url>
-		<tag>mule-blend-connector-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<build>
         <plugins>
