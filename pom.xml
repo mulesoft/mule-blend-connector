@@ -8,7 +8,7 @@
     <artifactId>mule-blend-connector</artifactId>
     <version>1.0.0</version>
     <packaging>mule-extension</packaging>
-    <name>Blend Extension</name>
+    <name>Blend - Mule 4</name>
 
     <parent>
         <groupId>com.mulesoft.connectors</groupId>
